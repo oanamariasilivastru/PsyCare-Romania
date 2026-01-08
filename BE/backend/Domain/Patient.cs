@@ -10,48 +10,64 @@ public class Patient
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("id")]
-    private int id;
+    public int id;
     
     [Required, MaxLength(100)]
     [Column("name")]
-    private string name;
+    public string name;
 
-    [Required, MaxLength(13)] 
-    [Column("pnc")]
-    private string pnc;
+    [Required]
+    [Column("identifier_token")]
+    public Guid? identifierToken;
 
     [Required, MaxLength(128)]
     [Column("password")]
-    private string password;
+    public string password;
 
     [Required, MaxLength(64)]
     [Column("salt")]
-    private string salt;
+    public string salt;
 
-    public Patient(int id, string name, string pnc, string password, string salt)
+    public Patient() { }
+    public Patient(string name, string password, string salt)
     {
-        this.id = id;
         this.name = name;
-        this.pnc = pnc;
         this.password = password;
         this.salt = salt;
     }
 
-    public int Id => id;
+    public int Id
+    {
+        get => id;
+        set => id = value;
+    }
 
-    public string Name => name;
+    public string Name
+    {
+        get => name;
+        set => name = value ?? throw new ArgumentNullException(nameof(value));
+    }
 
-    public string Pnc => pnc;
-
-    public string Salt => salt;
+    public Guid? IdentifierToken
+    {
+        get => identifierToken;
+        set => identifierToken = value;
+    }
 
     public string Password
     {
+        get => password;
         set => password = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public string Salt
+    {
+        get => salt;
+        set => salt = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public override string ToString()
     {
-        return $"{name} {pnc}";
+        return $"{name} [token: {identifierToken}]";
     }
 }

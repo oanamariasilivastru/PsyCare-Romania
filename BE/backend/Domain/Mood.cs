@@ -8,7 +8,7 @@ public class Mood
     [Column("Patient")]
     private Patient patient;
     
-    [Column("appointment_date")]
+    [Column("completion_date")]
     private DateTime date;
     
     [Column("score")]

@@ -36,3 +36,16 @@ create table Mood
 	primary key(Patient, completion_date)
 );
 go
+
+USE PSYCare;
+GO
+
+CREATE TABLE VaultIdentifier
+(
+    token UNIQUEIDENTIFIER PRIMARY KEY,           -- the token stored in main tables
+    encrypted_value VARBINARY(MAX) NOT NULL,     -- encrypted PNC / doctor code
+    data_type VARCHAR(30) NOT NULL,              -- 'PNC' or 'DOCTOR_CODE'
+    retention_until DATE NOT NULL,               -- automatic deletion enforcement
+    created_at DATETIME2 DEFAULT SYSUTCDATETIME()-- timestamp for audit
+);
+GO
