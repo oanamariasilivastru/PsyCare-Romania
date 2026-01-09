@@ -1,51 +1,43 @@
-﻿namespace backend.Domain;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
+
+namespace backend.Domain;
 
 [Table("Psychologist")]
 public class Psychologist
 {
-    public Psychologist()
-    {
-    }
-
-    public Psychologist(string name, string password, string salt)
-    {
-        this.Name = name;
-        this.Password = password;
-        this.Salt = salt;
-    }
-
-    public Psychologist(string name, Guid? identifierToken, string password, string salt)
-    {
-        this.Name = name;
-        this.IdentifierToken = identifierToken;
-        this.Password = password;
-        this.Salt = salt;
-    }
-
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("id")]
     public int Id { get; set; }
 
-    [Required, MaxLength(100)]
+    [Required]
     [Column("name")]
-    public string Name { get ; set ; }
+    [StringLength(100)]
+    public string Name { get; set; } = string.Empty;
 
     [Required]
-    [Column("IdentifierToken")]
-    public Guid? IdentifierToken { get; set; }
-
-    [Required, MaxLength(128)]
     [Column("password")]
-    public string Password { get; set; }
+    [StringLength(128)]
+    public string Password { get; set; } = string.Empty;
 
-    [Required, MaxLength(64)]
+    [Required]
     [Column("salt")]
-    public string Salt { get ; set; }
+    [StringLength(64)]
+    public string Salt { get; set; } = string.Empty;
+
+    [Column("IdentifierToken", TypeName = "uniqueidentifier")]
+    public Guid? IdentifierToken { get; set; }  // Nullable pentru că în SQL e NULL
+
+    public Psychologist() { }
+
+    public Psychologist(string name, string password, string salt)
+    {
+        Name = name;
+        Password = password;
+        Salt = salt;
+    }
 
     public override string ToString()
     {

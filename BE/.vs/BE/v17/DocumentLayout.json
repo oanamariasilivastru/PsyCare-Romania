@@ -1,0 +1,175 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Repo\\SSMSRepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Repo\\SSMSRepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Repo\\PSYCareDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Repo\\PSYCareDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Psychologist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Domain\\Psychologist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Domain\\Patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Planificator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Domain\\Planificator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Domain\\Mood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\test\\SchedulingSteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:test\\SchedulingSteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{2731ad3b-8e0a-46d2-b8f6-ca40c387732f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Program.cs",
+              "RelativeDocumentMoniker": "backend\\Program.cs",
+              "ToolTip": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Program.cs",
+              "RelativeToolTip": "backend\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T15:45:15.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PSYCareDbContext.cs",
+              "DocumentMoniker": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Repo\\PSYCareDbContext.cs",
+              "RelativeDocumentMoniker": "backend\\Repo\\PSYCareDbContext.cs",
+              "ToolTip": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Repo\\PSYCareDbContext.cs",
+              "RelativeToolTip": "backend\\Repo\\PSYCareDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T13:39:59.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Psychologist.cs",
+              "DocumentMoniker": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Psychologist.cs",
+              "RelativeDocumentMoniker": "backend\\Domain\\Psychologist.cs",
+              "ToolTip": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Psychologist.cs",
+              "RelativeToolTip": "backend\\Domain\\Psychologist.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T12:02:41.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SSMSRepo.cs",
+              "DocumentMoniker": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Repo\\SSMSRepo.cs",
+              "RelativeDocumentMoniker": "backend\\Repo\\SSMSRepo.cs",
+              "ToolTip": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Repo\\SSMSRepo.cs",
+              "RelativeToolTip": "backend\\Repo\\SSMSRepo.cs",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAAAIIAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T11:58:30.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Planificator.cs",
+              "DocumentMoniker": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Planificator.cs",
+              "RelativeDocumentMoniker": "backend\\Domain\\Planificator.cs",
+              "ToolTip": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Planificator.cs",
+              "RelativeToolTip": "backend\\Domain\\Planificator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T11:58:28.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Patient.cs",
+              "RelativeDocumentMoniker": "backend\\Domain\\Patient.cs",
+              "ToolTip": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Patient.cs",
+              "RelativeToolTip": "backend\\Domain\\Patient.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T11:58:25.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Mood.cs",
+              "DocumentMoniker": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Mood.cs",
+              "RelativeDocumentMoniker": "backend\\Domain\\Mood.cs",
+              "ToolTip": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\backend\\Domain\\Mood.cs",
+              "RelativeToolTip": "backend\\Domain\\Mood.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T11:58:20.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SchedulingSteps.cs",
+              "DocumentMoniker": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\test\\SchedulingSteps.cs",
+              "RelativeDocumentMoniker": "test\\SchedulingSteps.cs",
+              "ToolTip": "C:\\Master\\An_1\\req_eng\\PsyCare-Romania\\BE\\test\\SchedulingSteps.cs",
+              "RelativeToolTip": "test\\SchedulingSteps.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T11:58:02.406Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

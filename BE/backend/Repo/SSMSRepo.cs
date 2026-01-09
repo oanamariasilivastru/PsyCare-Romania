@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 public class SSMSRepo : IRepo
 {
     private readonly PSYCareDbContext dbContext;
-    private readonly string connectionString="Server=DESKTOP-29QIGKD;Database=PSYCare;Trusted_Connection=True;Encrypt=False;";
+    private readonly string connectionString = @"Server=DESKTOP-URV53RQ\SQLEXPRESS;Database=PSYCare;Trusted_Connection=True;Encrypt=False;TrustServerCertificate=True;";
     private readonly Vault vault;
     public SSMSRepo(PSYCareDbContext dbContext, IConfiguration configuration)
     {
@@ -43,7 +43,7 @@ public class SSMSRepo : IRepo
         using (var conn = new SqlConnection(connectionString))
         {
             string sql = @"
-                    INSERT INTO VaultIdentifier 
+                    INSERT INTO VaultIdentifier
                         (token, encrypted_value, data_type, retention_until) 
                     VALUES 
                         (@token, @encrypted, 'PNC', DATEADD(year, 5, GETDATE()))";
