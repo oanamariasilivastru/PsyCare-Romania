@@ -1,0 +1,54 @@
+.menu-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--mat-sys-primary-container);
+
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .menu-buttons button {
+    margin-right: 10px;
+    position: relative;
+
+    .badge {
+      background-color: red;
+      color: white;
+      font-size: 10px;
+      border-radius: 50%;
+      padding: 2px 6px;
+      position: absolute;
+      top: -5px;
+      right: -10px;
+    }
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .menu-right {
+    display: flex;
+    align-items: center;
+
+    button {
+      margin-left: 10px;
+      position: relative;
+
+      .badge {
+        background-color: red;
+        color: white;
+        font-size: 10px;
+        border-radius: 50%;
+        padding: 2px 6px;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+      }
+    }
+  }
+}

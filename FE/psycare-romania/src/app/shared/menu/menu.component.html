@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="menu-toolbar">
+  <span class="logo" routerLink="/dashboard">PsyCare Romania</span>
+
+  <span class="menu-buttons">
+    <button mat-button routerLink="/dashboard">Dashboard</button>
+    <button mat-button routerLink="/patients">Patients</button>
+    <button mat-button routerLink="/appointments">Appointments</button>
+    <button mat-button routerLink="/billing">Billing</button>
+    <button mat-button routerLink="/messages" matBadge="{{ unreadMessages }}">Messages</button>
+  </span>
+
+  <span class="spacer"></span>
+
+  <span class="menu-right">
+    <button mat-icon-button>
+      <mat-icon matBadge="{{ notificationsCount }}">notifications</mat-icon>
+    </button>
+
+    <button mat-button [matMenuTriggerFor]="profileMenu">
+      <mat-icon>account_circle</mat-icon>
+      {{ userName }}
+    </button>
+
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+        Settings
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </mat-menu>
+  </span>
+</mat-toolbar>
