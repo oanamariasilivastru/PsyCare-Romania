@@ -5,38 +5,34 @@ namespace backend.Domain;
 [Table("Planificator")]
 public class Planificator
 
-{   [ForeignKey(nameof(Psychologist))]
-    [Column("Psychologist")]
-    private Psychologist psychologist;
-    
-    [ForeignKey(nameof(Patient))]
-    [Column("Patient")]
-    private Patient patient;
-    
-    [Column("appointment_date")]
-    private DateTime date;
-    
-    [Column("fee", TypeName = "decimal(6,2)")]
-    private decimal fee;
+{   
+    public Planificator()
+    {
+    }
 
     public Planificator(Psychologist psychologist, Patient patient, DateTime date, decimal fee)
     {
-        this.psychologist = psychologist;
-        this.patient = patient;
-        this.date = date;
-        this.fee = fee;
+        this.Psychologist = psychologist;
+        this.Patient = patient;
+        this.Date = date;
+        this.Fee = fee;
     }
+    [ForeignKey(nameof(Psychologist))]
+    [Column("Psychologist")]
+    public Psychologist Psychologist { get; set; }
 
-    public Psychologist Psychologist => psychologist;
+    [ForeignKey(nameof(Patient))]
+    [Column("Patient")]
+    public Patient Patient { get; set; }
 
-    public Patient Patient => patient;
-
-    public DateTime Date => date;
-
-    public decimal Fee => fee;
+    [Column("appointment_date")]
+    public DateTime Date { get; set; }
+    
+    [Column("fee", TypeName = "decimal(6,2)")]
+    public decimal Fee {get; set;}
 
     public override string ToString()
     {
-        return $"{psychologist.Name} {patient.Name} {date:dd.MM.yyyy HH:mm} €{fee:0.00}";
+        return $"{Psychologist.Name} {Patient.Name} {Date:dd.MM.yyyy HH:mm} €{Fee:0.00}";
     }
 }

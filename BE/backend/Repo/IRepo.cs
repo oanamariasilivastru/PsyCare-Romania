@@ -6,4 +6,11 @@ public interface IRepo
 {
     public void addPatient(Patient p, string pnc);
     public void addPsychologist(Psychologist p, string code);
+    
+    public Patient? getPatient(string name);
+    public Psychologist? getPsychologist(string name);
+
+    public string getPatientPNC(Patient p);
+
+    public string getPsychologistStamp(Psychologist p);
 }

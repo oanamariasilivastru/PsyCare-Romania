@@ -7,72 +7,48 @@ using System.Collections.Generic;
 [Table("Psychologist")]
 public class Psychologist
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Column("id")]
-    public int id;
-    
-    [Required, MaxLength(100)]
-    [Column("name")]
-    public string name;
-
-    [Required]
-    [Column("identifier_token")]
-    public Guid? identifierToken;
-
-    [Required, MaxLength(128)]
-    [Column("password")]
-    public string password;
-
-    [Required, MaxLength(64)]
-    [Column("salt")]
-    public string salt;
-
     public Psychologist()
     {
     }
 
-    public Psychologist(int id, string name, Guid? identifierToken, string password, string salt)
+    public Psychologist(string name, string password, string salt)
     {
-        this.id = id;
-        this.name = name;
-        this.identifierToken = identifierToken;
-        this.password = password;
-        this.salt = salt;
+        this.Name = name;
+        this.Password = password;
+        this.Salt = salt;
     }
 
-    public int Id
+    public Psychologist(string name, Guid? identifierToken, string password, string salt)
     {
-        get => id;
-        set => id = value;
+        this.Name = name;
+        this.IdentifierToken = identifierToken;
+        this.Password = password;
+        this.Salt = salt;
     }
 
-    public string Name
-    {
-        get => name;
-        set => name = value ?? throw new ArgumentNullException(nameof(value));
-    }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("id")]
+    public int Id { get; set; }
 
-    public Guid? IdentifierToken
-    {
-        get => identifierToken;
-        set => identifierToken = value;
-    }
+    [Required, MaxLength(100)]
+    [Column("name")]
+    public string Name { get ; set ; }
 
-    public string Password
-    {
-        get => password;
-        set => password = value ?? throw new ArgumentNullException(nameof(value));
-    }
+    [Required]
+    [Column("IdentifierToken")]
+    public Guid? IdentifierToken { get; set; }
 
-    public string Salt
-    {
-        get => salt;
-        set => salt = value ?? throw new ArgumentNullException(nameof(value));
-    }
+    [Required, MaxLength(128)]
+    [Column("password")]
+    public string Password { get; set; }
+
+    [Required, MaxLength(64)]
+    [Column("salt")]
+    public string Salt { get ; set; }
 
     public override string ToString()
     {
-        return $"{name} [token: {identifierToken}]";
+        return $"{Name}";
     }
 }

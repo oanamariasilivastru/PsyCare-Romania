@@ -4,31 +4,29 @@ namespace backend.Domain;
 [Table("Mood")]
 public class Mood
 {
-    [ForeignKey(nameof(Patient))]
-    [Column("Patient")]
-    private Patient patient;
-    
-    [Column("completion_date")]
-    private DateTime date;
-    
-    [Column("score")]
-    private byte score;
+    public Mood()
+    {
+    }
 
     public Mood(Patient patient, DateTime date, byte score)
     {
-        this.patient = patient;
-        this.date = date;
-        this.score = score;
+        this.Patient = patient;
+        this.Date = date;
+        this.Score = score;
     }
 
-    public Patient Patient => patient;
+    [ForeignKey(nameof(Patient))]
+    [Column("Patient")]
+    public Patient Patient {get; set; }
 
-    public DateTime Date => date;
-
-    public byte Score => score;
+    [Column("completion_date")]
+    public DateTime Date { get; set; }
+    
+    [Column("score")]
+    public byte Score { get; set; }
 
     public override string ToString()
     {
-        return $"{patient.Name} {date} {score}/10";
+        return $"{Patient.Name} {Date} {Score}/10";
     }
 }

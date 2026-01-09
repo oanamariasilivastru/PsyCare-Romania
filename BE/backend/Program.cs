@@ -35,15 +35,29 @@ class Program
             string patientSalt = "randomSalt123";
             string patientPnc = "1234567890123";
         
-            var newPatient = new Patient(patientName, patientPassword, patientSalt);
+            var p=repo.getPatient("John Doe");
+            var pnc=repo.getPatientPNC(p);
         
-            
-            repo.addPatient(newPatient, patientPnc);
-        
-            Console.WriteLine($"Patient added: {newPatient.Name}, Token: {newPatient.IdentifierToken}");
+            Console.WriteLine($"Patient added: {p.Name}, pnc: {pnc}");
         }
         
-        Console.WriteLine("Done. Press any key to exit.");
-        Console.ReadKey();
+    using (var dbContext = new PSYCareDbContext())
+    {
+        
+        var repo = new SSMSRepo(dbContext, configuration);
+    
+        
+        string patientName = "John Doe";
+        string patientPassword = "password123";
+        string patientSalt = "randomSalt123";
+    
+        var psychologist = new Psychologist(patientName, patientPassword, patientSalt);
+    
+        
+        //repo.addPsychologist(psychologist,"176432");
+        var p=repo.getPsychologist("John Doe");
+        var code=repo.getPsychologistStamp(p);
+        Console.WriteLine($"Psychologist added: {psychologist.Name}, code: {code}");
+    }
     }
 }
