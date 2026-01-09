@@ -2,11 +2,20 @@
   <span class="logo" routerLink="/dashboard">PsyCare Romania</span>
 
   <span class="menu-buttons">
-    <button mat-button routerLink="/dashboard">Dashboard</button>
-    <button mat-button routerLink="/patients">Patients</button>
-    <button mat-button routerLink="/appointments">Appointments</button>
-    <button mat-button routerLink="/billing">Billing</button>
-    <button mat-button routerLink="/messages" matBadge="{{ unreadMessages }}">Messages</button>
+    <button mat-button routerLink="/dashboard" routerLinkActive="active-button">Dashboard</button>
+    <button mat-button routerLink="/patients" routerLinkActive="active-button">Patients</button>
+    <button mat-button routerLink="/appointments" routerLinkActive="active-button">
+      Appointments
+    </button>
+    <button mat-button routerLink="/billing" routerLinkActive="active-button">Billing</button>
+    <button
+      mat-button
+      routerLink="/messages"
+      matBadge="{{ unreadMessages }}"
+      routerLinkActive="active-button"
+    >
+      Messages
+    </button>
   </span>
 
   <span class="spacer"></span>
@@ -21,7 +30,7 @@
       {{ userName }}
     </button>
 
-    <mat-menu #profileMenu="matMenu">
+    <mat-menu #profileMenu="matMenu" routerLinkActive="active-button">
       <button mat-menu-item routerLink="/settings">
         <mat-icon>settings</mat-icon>
         Settings
