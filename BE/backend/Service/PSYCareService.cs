@@ -1,22 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using backend.Domain;
 using backend.Repo;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace backend.Service
 {
     public class PSYCareService : IService
     {
         private readonly IRepo repo;
+        private readonly IConfiguration _configuration;
 
-        public PSYCareService(IRepo repo)
+        public PSYCareService(IRepo repo, IConfiguration configuration)
         {
             this.repo = repo ?? throw new ArgumentNullException(nameof(repo));
+            this._configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
-
 
         public void AddPatient(Patient patient, string pnc)
         {
@@ -32,7 +34,6 @@ namespace backend.Service
             repo.addPsychologist(psychologist, code);
         }
 
-
         public Patient? GetPatient(string name)
         {
             if (string.IsNullOrWhiteSpace(name)) return null;
@@ -45,13 +46,11 @@ namespace backend.Service
             return repo.getPsychologist(name);
         }
 
-
         public string GetPatientPNC(Patient patient)
         {
             if (patient == null) throw new ArgumentNullException(nameof(patient));
             return repo.getPatientPNC(patient);
         }
-
 
         public string GetPsychologistStamp(Psychologist psychologist)
         {
@@ -59,23 +58,51 @@ namespace backend.Service
             return repo.getPsychologistStamp(psychologist);
         }
 
-        /*
-        public Patient? LoginPatient(string name, string password)
+        public string? LoginPatient(string name, string password)
         {
             var patient = repo.getPatient(name);
             if (patient == null) return null;
 
-            return repo.VerifyPassword(patient, password) ? patient : null;
+            if (!SSMSRepo.VerifyPassword(password, patient.Password, patient.Salt))
+                return null;
+
+            return GenerateJwtToken(patient.Name, "Patient");
         }
 
-
-        public Psychologist? LoginPsychologist(string name, string password)
+        public string? LoginPsychologist(string name, string password)
         {
-            var psychologist = repo.getPsychologist(name);
-            if (psychologist == null) return null;
+            var psych = repo.getPsychologist(name);
+            if (psych == null) return null;
 
-            return repo.VerifyPassword(psychologist, password) ? psychologist : null;
+            if (!SSMSRepo.VerifyPassword(password, psych.Password, psych.Salt))
+                return null;
+
+            return GenerateJwtToken(psych.Name, "Psychologist");
         }
-        */
+
+        private string GenerateJwtToken(string userName, string role)
+        {
+            var key = _configuration["Jwt:Key"] ?? "SuperSecretKey12345";
+            var issuer = _configuration["Jwt:Issuer"] ?? "PSYCare";
+
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.Name, userName),
+                new Claim(ClaimTypes.Role, role)
+            };
+
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: issuer,
+                audience: null,
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(2),
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
     }
 }

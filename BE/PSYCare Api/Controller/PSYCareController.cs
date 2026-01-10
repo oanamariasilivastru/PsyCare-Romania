@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using backend.Domain;
+﻿using backend.Domain;
 using backend.Dtos;
 using backend.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controller
 {
-     [ApiController]
+    [ApiController]
     [Route("api/[controller]")]
     public class PSYCareController : ControllerBase
     {
@@ -22,11 +17,8 @@ namespace backend.Controller
             _service = service;
         }
 
-        // ========================
-        // Patients Endpoints
-        // ========================
-
         [HttpPost("patients")]
+        [Authorize(Roles = "Admin")]
         public IActionResult AddPatient([FromBody] PatientDto dto)
         {
             if (dto == null || string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.PNC))
@@ -38,15 +30,16 @@ namespace backend.Controller
         }
 
         [HttpGet("patients/{name}")]
+        [Authorize(Roles = "Patient,Admin")]
         public IActionResult GetPatient(string name)
         {
             var patient = _service.GetPatient(name);
             if (patient == null) return NotFound("Patient not found");
-
             return Ok(patient);
         }
 
         [HttpGet("patients/{name}/pnc")]
+        [Authorize(Roles = "Patient,Admin")]
         public IActionResult GetPatientPNC(string name)
         {
             var patient = _service.GetPatient(name);
@@ -56,11 +49,8 @@ namespace backend.Controller
             return Ok(new { PNC = pnc });
         }
 
-        // ========================
-        // Psychologists Endpoints
-        // ========================
-
         [HttpPost("psychologists")]
+        [Authorize(Roles = "Admin")]
         public IActionResult AddPsychologist([FromBody] PsychologistDto dto)
         {
             if (dto == null || string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Code))
@@ -72,15 +62,16 @@ namespace backend.Controller
         }
 
         [HttpGet("psychologists/{name}")]
+        [Authorize(Roles = "Psychologist,Admin")]
         public IActionResult GetPsychologist(string name)
         {
             var psych = _service.GetPsychologist(name);
             if (psych == null) return NotFound("Psychologist not found");
-
             return Ok(psych);
         }
 
         [HttpGet("psychologists/{name}/stamp")]
+        [Authorize(Roles = "Psychologist,Admin")]
         public IActionResult GetPsychologistStamp(string name)
         {
             var psych = _service.GetPsychologist(name);
@@ -88,6 +79,32 @@ namespace backend.Controller
 
             var stamp = _service.GetPsychologistStamp(psych);
             return Ok(new { StampCode = stamp });
+        }
+
+        [HttpPost("login/patient")]
+        [AllowAnonymous]
+        public IActionResult LoginPatient([FromBody] LoginDto dto)
+        {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Password))
+                return BadRequest("Name and password are required");
+
+            var token = _service.LoginPatient(dto.Name, dto.Password);
+            if (token == null) return Unauthorized("Invalid credentials");
+
+            return Ok(new { Token = token });
+        }
+
+        [HttpPost("login/psychologist")]
+        [AllowAnonymous]
+        public IActionResult LoginPsychologist([FromBody] LoginDto dto)
+        {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Password))
+                return BadRequest("Name and password are required");
+
+            var token = _service.LoginPsychologist(dto.Name, dto.Password);
+            if (token == null) return Unauthorized("Invalid credentials");
+
+            return Ok(new { Token = token });
         }
     }
 }

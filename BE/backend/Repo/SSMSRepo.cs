@@ -13,17 +13,17 @@ using Microsoft.Extensions.Configuration;
 public class SSMSRepo : IRepo
 {
     private readonly PSYCareDbContext dbContext;
-    private readonly string connectionString="Server=DESKTOP-29QIGKD;Database=PSYCare;Trusted_Connection=True;Encrypt=False;";
+    private readonly string connectionString;
     private readonly Vault vault;
     public SSMSRepo(PSYCareDbContext dbContext, IConfiguration configuration)
     {
         this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-        //this.connectionString = configuration.GetConnectionString("PSYCare");
+        this.connectionString = configuration.GetConnectionString("PSYCare");
         this.vault = new Vault(configuration);
     }
     
    
-    private static bool VerifyPassword(string password, string storedHash, string storedSalt)
+    public static bool VerifyPassword(string password, string storedHash, string storedSalt)
     {
         byte[] saltBytes = Convert.FromBase64String(storedSalt);
         using var pbkdf2 = new Rfc2898DeriveBytes(password, saltBytes, 100_000, HashAlgorithmName.SHA256);
