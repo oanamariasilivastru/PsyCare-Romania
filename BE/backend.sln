@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend", "backend\backend.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{8E44D058-6227-47AE-AF77-0DF53BD2285E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSYCare Api", "PSYCare Api\PSYCare Api.csproj", "{092281D7-88FD-4C0E-8D70-65AD4B34FEF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{8E44D058-6227-47AE-AF77-0DF53BD2285E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E44D058-6227-47AE-AF77-0DF53BD2285E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E44D058-6227-47AE-AF77-0DF53BD2285E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{092281D7-88FD-4C0E-8D70-65AD4B34FEF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{092281D7-88FD-4C0E-8D70-65AD4B34FEF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{092281D7-88FD-4C0E-8D70-65AD4B34FEF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{092281D7-88FD-4C0E-8D70-65AD4B34FEF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

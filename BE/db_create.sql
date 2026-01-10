@@ -49,3 +49,21 @@ CREATE TABLE VaultIdentifier
     created_at DATETIME2 DEFAULT SYSUTCDATETIME()-- timestamp for audit
 );
 GO
+
+use PSYCare
+-- Convert column type
+ALTER TABLE Patient
+    ALTER COLUMN IdentifierToken UNIQUEIDENTIFIER NULL;
+
+ALTER TABLE Psychologist
+    ALTER COLUMN IdentifierToken UNIQUEIDENTIFIER NULL;
+
+-- If existing rows have string GUIDs, convert them
+UPDATE Patient
+SET IdentifierToken = CAST(IdentifierToken AS UNIQUEIDENTIFIER)
+WHERE IdentifierToken IS NOT NULL;
+
+UPDATE Psychologist
+SET IdentifierToken = CAST(IdentifierToken AS UNIQUEIDENTIFIER)
+WHERE IdentifierToken IS NOT NULL;
+go

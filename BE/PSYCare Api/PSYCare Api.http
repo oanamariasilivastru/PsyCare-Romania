@@ -1,0 +1,6 @@
+@PSYCare_Api_HostAddress = http://localhost:5286
+
+GET {{PSYCare_Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

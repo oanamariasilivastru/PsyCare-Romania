@@ -18,7 +18,7 @@ public class SSMSRepo : IRepo
     public SSMSRepo(PSYCareDbContext dbContext, IConfiguration configuration)
     {
         this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-        //this.connectionString = "Server=DESKTOP-29QIGKD;Database=PSYCare;Trusted_Connection=True;Encrypt=False;"; //configuration.GetConnectionString("PSYCare");
+        //this.connectionString = configuration.GetConnectionString("PSYCare");
         this.vault = new Vault(configuration);
     }
     
