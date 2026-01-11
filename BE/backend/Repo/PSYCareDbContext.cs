@@ -5,20 +5,20 @@ namespace backend.Repo
 {
     public class PSYCareDbContext : DbContext
     {
-        public PSYCareDbContext(DbContextOptions<PSYCareDbContext> options)
-            : base(options)
+        public PSYCareDbContext(DbContextOptions<PSYCareDbContext> options) : base(options)
         {
         }
 
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Psychologist> Psychologists { get; set; }
+        public DbSet<Mood> Moods { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<Patient>().ToTable("Patient");
             modelBuilder.Entity<Psychologist>().ToTable("Psychologist");
+            modelBuilder.Entity<Mood>().ToTable("Mood");
         }
     }
 }

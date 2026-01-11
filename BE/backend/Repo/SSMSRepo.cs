@@ -28,7 +28,17 @@ public class SSMSRepo : IRepo
     {
        return this.vault.VerifyPassword(password, storedHash, storedSalt);
     }
-    
+
+    public void addMood(Mood mood)
+    {
+        this.dbContext.Moods.Add(mood);
+    }
+
+    public List<Mood> getMoods(Patient p)
+    {
+        return dbContext.Moods.Where(mood=>mood.Patient == p).ToList();
+    }
+
     public void addPatient(Patient p, string rawPnc)
     {
         if (p == null) throw new ArgumentNullException(nameof(p));

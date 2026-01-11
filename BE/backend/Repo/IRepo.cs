@@ -14,4 +14,7 @@ public interface IRepo
 
     public string getPsychologistStamp(Psychologist p);
     public bool verifyPassword(string password, string storedHash, string storedSalt);
+    public void addMood(Mood mood);
+    public List<Mood> getMoods(Patient p);
+    
 }

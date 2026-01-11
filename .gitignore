@@ -1,0 +1,10 @@
+﻿# .NET build junk
+**/bin/
+**/obj/
+
+# Rider / Visual Studio
+.idea/
+.vs/
+*.user
+*.suo
+*.cache
