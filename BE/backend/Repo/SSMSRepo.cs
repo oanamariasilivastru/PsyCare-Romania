@@ -1,4 +1,5 @@
-﻿using backend.Utils;
+﻿using System.Runtime.CompilerServices;
+using backend.Utils;
 
 namespace backend.Repo;
 
@@ -23,12 +24,9 @@ public class SSMSRepo : IRepo
     }
     
    
-    public static bool VerifyPassword(string password, string storedHash, string storedSalt)
+    public bool verifyPassword(string password, string storedHash, string storedSalt)
     {
-        byte[] saltBytes = Convert.FromBase64String(storedSalt);
-        using var pbkdf2 = new Rfc2898DeriveBytes(password, saltBytes, 100_000, HashAlgorithmName.SHA256);
-        byte[] hash = pbkdf2.GetBytes(32);
-        return Convert.ToBase64String(hash) == storedHash;
+       return this.vault.VerifyPassword(password, storedHash, storedSalt);
     }
     
     public void addPatient(Patient p, string rawPnc)

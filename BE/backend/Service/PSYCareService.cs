@@ -63,7 +63,7 @@ namespace backend.Service
             var patient = repo.getPatient(name);
             if (patient == null) return null;
 
-            if (!SSMSRepo.VerifyPassword(password, patient.Password, patient.Salt))
+            if (!this.repo.verifyPassword(password, patient.Password, patient.Salt))
                 return null;
 
             return GenerateJwtToken(patient.Name, "Patient");
@@ -74,7 +74,7 @@ namespace backend.Service
             var psych = repo.getPsychologist(name);
             if (psych == null) return null;
 
-            if (!SSMSRepo.VerifyPassword(password, psych.Password, psych.Salt))
+            if (!this.repo.verifyPassword(password, psych.Password, psych.Salt))
                 return null;
 
             return GenerateJwtToken(psych.Name, "Psychologist");
