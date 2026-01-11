@@ -1,24 +1,10 @@
-section {
+:host {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  height: 100%;
 }
 
-.example-label {
-  font-size: 14px;
-  margin: 0 16px 0 8px;
-  min-width: 120px;
-}
-
-.example-button-row {
-  max-width: 600px;
-}
-
-.example-button-row .mat-mdc-button-base {
-  margin: 8px 8px 8px 0;
-}
-
-.example-flex-container {
+.page-container {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }

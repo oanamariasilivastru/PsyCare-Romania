@@ -1,20 +1,29 @@
 import { Component } from '@angular/core';
+import { CalendarComponent } from '../../shared/calendar/calendar.component';
+import { CalendarOptions } from '@fullcalendar/core/index.js';
 
 @Component({
   selector: 'app-appointments',
   standalone: true,
-  template: `
-    <div class="appointments-container">
-      <h1>Appointments</h1>
-      <p>Manage your appointments</p>
-    </div>
-  `,
-  styles: [
-    `
-      .appointments-container {
-        padding: 20px;
-      }
-    `,
-  ],
+  templateUrl: './appointments.component.html',
+  styleUrl: './appointments.component.scss',
+  imports: [CalendarComponent],
 })
-export class AppointmentsComponent {}
+export class AppointmentsComponent {
+  calendarOptions: CalendarOptions = {
+    height: 'calc(100% - 80px)',
+
+    headerToolbar: {
+      left: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek today',
+      center: 'title',
+      right: 'prevYear,prev,next,nextYear',
+    },
+    buttonText: {
+      dayGridMonth: 'Month',
+      timeGridWeek: 'Week',
+      timeGridDay: 'Day',
+      listWeek: 'Agenda',
+      today: 'Today',
+    },
+  };
+}
