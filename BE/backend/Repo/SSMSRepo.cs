@@ -39,6 +39,21 @@ public class SSMSRepo : IRepo
         return dbContext.Moods.Where(mood=>mood.Patient == p).ToList();
     }
 
+    public void addAppointment(Planificator p)
+    {
+        this.dbContext.Planificators.Add(p);
+    }
+
+    public List<Planificator> getPlanificatorsPatient(Patient p)
+    {
+        return this.dbContext.Planificators.Where(planificator => planificator.Patient == p).ToList();
+    }
+
+    public List<Planificator> getPlanificatorsPsychologist(Psychologist p)
+    {
+        return this.dbContext.Planificators.Where(planificator => planificator.Psychologist == p).ToList();
+    }
+
     public void addPatient(Patient p, string rawPnc)
     {
         if (p == null) throw new ArgumentNullException(nameof(p));

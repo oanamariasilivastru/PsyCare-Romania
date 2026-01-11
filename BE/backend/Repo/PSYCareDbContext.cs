@@ -12,6 +12,7 @@ namespace backend.Repo
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Psychologist> Psychologists { get; set; }
         public DbSet<Mood> Moods { get; set; }
+        public DbSet<Planificator> Planificators { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,6 +20,7 @@ namespace backend.Repo
             modelBuilder.Entity<Patient>().ToTable("Patient");
             modelBuilder.Entity<Psychologist>().ToTable("Psychologist");
             modelBuilder.Entity<Mood>().ToTable("Mood");
+            modelBuilder.Entity<Planificator>().ToTable("Planificator");
         }
     }
 }
