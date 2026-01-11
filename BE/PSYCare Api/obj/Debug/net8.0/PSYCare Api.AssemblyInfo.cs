@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PSYCare Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b51d7fd9c4beec6b7f0bb46042b98e2f4e10022e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73de033155ff28f50a80e3f0577346a008c48fa1")]
 [assembly: System.Reflection.AssemblyProductAttribute("PSYCare Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PSYCare Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

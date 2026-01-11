@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\RE\\backend\\BE\\PSYCare Api\\PSYCare Api.csproj": {}
+    "C:\\Master\\An_1\\PsyCare-Romania\\BE\\PSYCare Api\\PSYCare Api.csproj": {}
   },
   "projects": {
-    "D:\\RE\\backend\\BE\\backend\\backend.csproj": {
+    "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\RE\\backend\\BE\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "D:\\RE\\backend\\BE\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\Bebe\\.nuget\\packages\\",
-        "outputPath": "D:\\RE\\backend\\BE\\backend\\obj\\",
+        "projectPath": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\Oana\\.nuget\\packages\\",
+        "outputPath": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Bebe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Oana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,11 +39,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -96,34 +98,41 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\RE\\backend\\BE\\PSYCare Api\\PSYCare Api.csproj": {
+    "C:\\Master\\An_1\\PsyCare-Romania\\BE\\PSYCare Api\\PSYCare Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\RE\\backend\\BE\\PSYCare Api\\PSYCare Api.csproj",
+        "projectUniqueName": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\PSYCare Api\\PSYCare Api.csproj",
         "projectName": "PSYCare Api",
-        "projectPath": "D:\\RE\\backend\\BE\\PSYCare Api\\PSYCare Api.csproj",
-        "packagesPath": "C:\\Users\\Bebe\\.nuget\\packages\\",
-        "outputPath": "D:\\RE\\backend\\BE\\PSYCare Api\\obj\\",
+        "projectPath": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\PSYCare Api\\PSYCare Api.csproj",
+        "packagesPath": "C:\\Users\\Oana\\.nuget\\packages\\",
+        "outputPath": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\PSYCare Api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Bebe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Oana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\RE\\backend\\BE\\backend\\backend.csproj": {
-                "projectPath": "D:\\RE\\backend\\BE\\backend\\backend.csproj"
+              "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\backend.csproj": {
+                "projectPath": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\backend.csproj"
               }
             }
           }
@@ -132,11 +141,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -199,7 +203,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

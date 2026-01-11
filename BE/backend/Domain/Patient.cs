@@ -1,14 +1,14 @@
-﻿namespace backend.Domain;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
+
+namespace backend.Domain;
 
 [Table("Patient")]
 public class Patient
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("id")]
     public int Id { get; set; }
 
@@ -16,7 +16,6 @@ public class Patient
     [Column("name")]
     public string Name { get; set; }
 
-    [Required]
     [Column("IdentifierToken", TypeName = "uniqueidentifier")]
     public Guid? IdentifierToken { get; set; }
 
@@ -28,25 +27,8 @@ public class Patient
     [Column("salt")]
     public string Salt { get; set; }
     
-    public Patient() { }
-    
-    public Patient(string name, string password, string salt)
-    {
-        Name = name;
-        Password = password;
-        Salt = salt;
-    }
+    public ICollection<Mood> Moods { get; set; } = new List<Mood>();
+    public ICollection<Planificator> Planificari { get; set; } = new List<Planificator>();
 
-    public Patient(string name, Guid? identifierToken, string password, string salt)
-    {
-        Name = name;
-        IdentifierToken = identifierToken;
-        Password = password;
-        Salt = salt;
-    }
-
-    public override string ToString()
-    {
-        return $"{Name}";
-    }
+    public override string ToString() => Name;
 }

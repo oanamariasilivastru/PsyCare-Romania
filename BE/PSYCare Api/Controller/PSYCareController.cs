@@ -18,7 +18,6 @@ namespace backend.Controller
         }
 
         [HttpPost("patients")]
-        [Authorize(Roles = "Admin")]
         public IActionResult AddPatient([FromBody] PatientDto dto)
         {
             if (dto == null || string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.PNC))
@@ -30,7 +29,6 @@ namespace backend.Controller
         }
 
         [HttpGet("patients/{name}")]
-        [Authorize(Roles = "Patient,Admin")]
         public IActionResult GetPatient(string name)
         {
             var patient = _service.GetPatient(name);
@@ -39,7 +37,6 @@ namespace backend.Controller
         }
 
         [HttpGet("patients/{name}/pnc")]
-        [Authorize(Roles = "Patient,Admin")]
         public IActionResult GetPatientPNC(string name)
         {
             var patient = _service.GetPatient(name);
@@ -50,7 +47,6 @@ namespace backend.Controller
         }
 
         [HttpPost("psychologists")]
-        [Authorize(Roles = "Admin")]
         public IActionResult AddPsychologist([FromBody] PsychologistDto dto)
         {
             if (dto == null || string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Code))
@@ -62,7 +58,6 @@ namespace backend.Controller
         }
 
         [HttpGet("psychologists/{name}")]
-        [Authorize(Roles = "Psychologist,Admin")]
         public IActionResult GetPsychologist(string name)
         {
             var psych = _service.GetPsychologist(name);
@@ -71,7 +66,6 @@ namespace backend.Controller
         }
 
         [HttpGet("psychologists/{name}/stamp")]
-        [Authorize(Roles = "Psychologist,Admin")]
         public IActionResult GetPsychologistStamp(string name)
         {
             var psych = _service.GetPsychologist(name);

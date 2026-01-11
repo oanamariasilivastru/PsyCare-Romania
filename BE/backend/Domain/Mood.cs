@@ -1,32 +1,36 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace backend.Domain;
-[Table("Mood")]
-public class Mood
+namespace backend.Domain
 {
-    public Mood()
+    [Table("Mood")]
+    public class Mood
     {
-    }
+        public Mood() { }
 
-    public Mood(Patient patient, DateTime date, byte score)
-    {
-        this.Patient = patient;
-        this.Date = date;
-        this.Score = score;
-    }
+        public Mood(Patient patient, DateTime date, byte score)
+        {
+            Patient = patient;
+            PatientId = patient.Id;
+            Date = date;
+            Score = score;
+        }
 
-    [ForeignKey(nameof(Patient))]
-    [Column("Patient")]
-    public Patient Patient {get; set; }
+        [Column("Patient")]
+        public int PatientId { get; set; }
 
-    [Column("completion_date")]
-    public DateTime Date { get; set; }
-    
-    [Column("score")]
-    public byte Score { get; set; }
+        [ForeignKey(nameof(PatientId))]
+        public Patient Patient { get; set; }
 
-    public override string ToString()
-    {
-        return $"{Patient.Name} {Date} {Score}/10";
+        [Column("completion_date")]
+        public DateTime Date { get; set; }
+
+        [Column("score")]
+        public byte Score { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Patient?.Name} {Date:dd.MM.yyyy} {Score}/10";
+        }
     }
 }
