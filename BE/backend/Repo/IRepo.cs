@@ -13,4 +13,5 @@ public interface IRepo
     public string getPatientPNC(Patient p);
 
     public string getPsychologistStamp(Psychologist p);
+    public bool verifyPassword(string password, string storedHash, string storedSalt);
 }

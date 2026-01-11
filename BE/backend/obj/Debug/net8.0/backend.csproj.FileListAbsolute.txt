@@ -35,7 +35,6 @@ D:\RE\backend\BE\backend\bin\Debug\net8.0\EntityFramework.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -92,7 +91,6 @@ D:\RE\backend\BE\backend\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\RE\backend\BE\backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\RE\backend\BE\backend\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
@@ -185,3 +183,8 @@ C:\Master\An_1\req_eng\PsyCare-Romania\BE\backend\bin\Debug\net8.0\Microsoft.Ent
 C:\Master\An_1\req_eng\PsyCare-Romania\BE\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Master\An_1\req_eng\PsyCare-Romania\BE\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Master\An_1\req_eng\PsyCare-Romania\BE\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\RE\backend\BE\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
