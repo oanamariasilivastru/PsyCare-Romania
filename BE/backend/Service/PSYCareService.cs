@@ -104,5 +104,46 @@ namespace backend.Service
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        
+        public void AddMood(Mood mood)
+        {
+            if (mood == null) throw new ArgumentNullException(nameof(mood));
+            repo.addMood(mood);
+        }
+
+        public List<Mood> GetMoods(Patient patient)
+        {
+            if (patient == null) throw new ArgumentNullException(nameof(patient));
+            return repo.getMoods(patient);
+        }
+        
+        public void AddAppointment(Planificator planificator)
+        {
+            if (planificator == null) throw new ArgumentNullException(nameof(planificator));
+            repo.addAppointment(planificator);
+        }
+
+        public List<Planificator> GetPlanificatorsPatient(Patient patient)
+        {
+            if (patient == null) throw new ArgumentNullException(nameof(patient));
+            return repo.getPlanificatorsPatient(patient);
+        }
+
+        public List<Planificator> GetPlanificatorsPsychologist(Psychologist psychologist)
+        {
+            if (psychologist == null) throw new ArgumentNullException(nameof(psychologist));
+            return repo.getPlanificatorsPsychologist(psychologist);
+        }
+        
+        public Patient? GetPatientById(int id)
+        {
+            return repo.GetPatientById(id);
+        }
+
+        public Psychologist? GetPsychologistById(int id)
+        {
+            return repo.GetPsychologistById(id);
+        }
+
     }
 }

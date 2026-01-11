@@ -100,5 +100,70 @@ namespace backend.Controller
 
             return Ok(new { Token = token });
         }
+        
+        [HttpPost("Mood")]
+        public IActionResult AddMood([FromBody] MoodDto dto)
+        {
+            var patient = _service.GetPatientById(dto.PatientId);
+            if (patient == null) return NotFound("Patient not found");
+
+            var mood = new Mood(patient, dto.Date, dto.Score);
+            _service.AddMood(mood);
+
+            return Ok("Mood added successfully");
+        }
+
+        [HttpGet("Mood/{patientId}")]
+        public ActionResult<List<Mood>> GetMoods(int patientId)
+        {
+            var patient = _service.GetPatientById(patientId);
+            if (patient == null) return NotFound("Patient not found");
+
+            var moods = _service.GetMoods(patient);
+            return Ok(moods);
+        }
+        
+        [HttpPost("Appointment")]
+        public IActionResult AddAppointment([FromBody] AppointmentDto dto)
+        {
+            var patient = _service.GetPatientById(dto.PatientId);
+            if (patient == null) return NotFound("Patient not found");
+
+            var psych = _service.GetPsychologistById(dto.PsychologistId);
+            if (psych == null) return NotFound("Psychologist not found");
+
+            var appointment = new Planificator
+            {
+                Patient = patient,
+                PatientId = patient.Id,
+                Psychologist = psych,
+                PsychologistId = psych.Id,
+                Date = dto.Date,
+                Fee = dto.Fee
+            };
+
+            _service.AddAppointment(appointment);
+            return Ok("Appointment added successfully");
+        }
+
+        [HttpGet("Appointment/Patient/{patientId}")]
+        public ActionResult<List<Planificator>> GetPlanificatorsPatient(int patientId)
+        {
+            var patient = _service.GetPatientById(patientId);
+            if (patient == null) return NotFound("Patient not found");
+
+            var appointments = _service.GetPlanificatorsPatient(patient);
+            return Ok(appointments);
+        }
+
+        [HttpGet("Appointment/Psychologist/{psychologistId}")]
+        public ActionResult<List<Planificator>> GetPlanificatorsPsychologist(int psychologistId)
+        {
+            var psych = _service.GetPsychologistById(psychologistId);
+            if (psych == null) return NotFound("Psychologist not found");
+
+            var appointments = _service.GetPlanificatorsPsychologist(psych);
+            return Ok(appointments);
+        }
     }
 }

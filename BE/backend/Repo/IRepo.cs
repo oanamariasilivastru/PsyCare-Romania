@@ -8,10 +8,10 @@ public interface IRepo
     public void addPsychologist(Psychologist p, string code);
     
     public Patient? getPatient(string name);
+    Patient? GetPatientById(int id);
     public Psychologist? getPsychologist(string name);
-
+    Psychologist? GetPsychologistById(int id);
     public string getPatientPNC(Patient p);
-
     public string getPsychologistStamp(Psychologist p);
     public bool verifyPassword(string password, string storedHash, string storedSalt);
     public void addMood(Mood mood);

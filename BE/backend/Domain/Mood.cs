@@ -15,7 +15,6 @@ namespace backend.Domain
             Date = date;
             Score = score;
         }
-
         [Column("Patient")]
         public int PatientId { get; set; }
 

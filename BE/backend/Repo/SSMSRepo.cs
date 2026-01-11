@@ -31,13 +31,19 @@ public class SSMSRepo : IRepo
 
     public void addMood(Mood mood)
     {
-        this.dbContext.Moods.Add(mood);
+        if (mood == null) throw new ArgumentNullException(nameof(mood));
+        dbContext.Moods.Add(mood);
+        dbContext.SaveChanges();
     }
-
+    
     public List<Mood> getMoods(Patient p)
     {
-        return dbContext.Moods.Where(mood=>mood.Patient == p).ToList();
+        if (p == null) throw new ArgumentNullException(nameof(p));
+        return dbContext.Moods
+            .Where(m => m.PatientId == p.Id)
+            .ToList();
     }
+
 
     public void addAppointment(Planificator p)
     {
@@ -46,13 +52,20 @@ public class SSMSRepo : IRepo
 
     public List<Planificator> getPlanificatorsPatient(Patient p)
     {
-        return this.dbContext.Planificators.Where(planificator => planificator.Patient == p).ToList();
+        if (p == null) throw new ArgumentNullException(nameof(p));
+        return dbContext.Planificators
+            .Where(pl => pl.PatientId == p.Id)
+            .ToList();
     }
 
     public List<Planificator> getPlanificatorsPsychologist(Psychologist p)
     {
-        return this.dbContext.Planificators.Where(planificator => planificator.Psychologist == p).ToList();
+        if (p == null) throw new ArgumentNullException(nameof(p));
+        return dbContext.Planificators
+            .Where(pl => pl.PsychologistId == p.Id)
+            .ToList();
     }
+
 
     public void addPatient(Patient p, string rawPnc)
     {
@@ -93,6 +106,7 @@ public class SSMSRepo : IRepo
         byte[] encrypted = this.vault.EncryptString(code);
         string salt;
         p.Password = this.vault.HashPassword(p.Password, out salt);
+        p.Salt = salt;
         using (var conn = new SqlConnection(connectionString))
         {
             string sql = @"
@@ -166,4 +180,12 @@ public class SSMSRepo : IRepo
         return vault.Decrypt(encrypted);
     }
     
+    public Patient? GetPatientById(int id)
+    {
+        return dbContext.Patients.FirstOrDefault(p => p.Id == id);
+    }
+    public Psychologist? GetPsychologistById(int id)
+    {
+        return dbContext.Psychologists.FirstOrDefault(p => p.Id == id);
+    }
 }

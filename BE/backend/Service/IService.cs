@@ -13,8 +13,14 @@ namespace backend.Service
         
         string GetPatientPNC(Patient patient);
         string GetPsychologistStamp(Psychologist psychologist);
-        
         string? LoginPatient(string name, string password);
         string? LoginPsychologist(string name, string password);
+        Patient? GetPatientById(int id);
+        Psychologist? GetPsychologistById(int id);
+        void AddMood(Mood mood);
+        List<Mood> GetMoods(Patient patient);
+        void AddAppointment(Planificator planificator);
+        List<Planificator> GetPlanificatorsPatient(Patient patient);
+        List<Planificator> GetPlanificatorsPsychologist(Psychologist psychologist);
     }
 }
