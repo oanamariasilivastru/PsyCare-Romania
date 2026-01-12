@@ -1,0 +1,14 @@
+.patient-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+}
+
+.mood-card, .chart-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 16px;
+  text-align: center;
+}

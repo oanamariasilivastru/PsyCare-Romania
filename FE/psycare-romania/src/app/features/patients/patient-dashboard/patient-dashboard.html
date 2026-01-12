@@ -1,0 +1,11 @@
+<mat-card>
+  <h2>How do you feel today?</h2>
+  <mat-slider min="1" max="10" step="1" [(ngModel)]="selectedMood"></mat-slider>
+  <p>Your mood: {{ selectedMood }}</p>
+  <button mat-raised-button color="primary" (click)="submitMood()">Submit</button>
+</mat-card>
+
+<mat-card style="margin-top: 20px;">
+  <h2>Mood History</h2>
+  <canvas id="moodChart"></canvas>
+</mat-card>
