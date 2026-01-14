@@ -1,0 +1,110 @@
+<mat-toolbar color="primary" class="menu-toolbar">
+  <span class="logo" routerLink="/dashboard">PsyCare</span>
+
+  <div class="menu-buttons">
+    <button mat-button routerLink="/dashboard/patient" routerLinkActive="active-button" [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon>dashboard</mat-icon>
+      Dashboard
+    </button>
+    <button mat-button routerLink="/appointments/patient" routerLinkActive="active-button">
+      <mat-icon>event</mat-icon>
+      Appointments
+    </button>
+    <button mat-button routerLink="/tests/patient" routerLinkActive="active-button">
+      <mat-icon>assignment</mat-icon>
+      Tests
+    </button>
+    <button mat-button routerLink="/messages/patient" routerLinkActive="active-button" [matBadge]="unreadMessages" [matBadgeHidden]="unreadMessages === 0" matBadgeColor="warn">
+      <mat-icon>mail</mat-icon>
+      Messages
+    </button>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="menu-right">
+    <button mat-icon-button [matBadge]="notificationsCount" [matBadgeHidden]="notificationsCount === 0" matBadgeColor="warn">
+      <mat-icon>notifications</mat-icon>
+    </button>
+
+    <button mat-button [matMenuTriggerFor]="menu" class="user-button">
+      <mat-icon>account_circle</mat-icon>
+      <span class="user-name">{{ userName }}</span>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<div class="dashboard-container">
+  <div class="content-wrapper">
+    <div class="mood-section">
+      <mat-card class="mood-input-card">
+        <mat-card-header>
+          <mat-card-title>How are you feeling today?</mat-card-title>
+          <mat-card-subtitle>Track your daily mood</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <div class="mood-display">
+            <div class="mood-emoji" [style.color]="getMoodColor(selectedMood)">
+              {{ getEmotion(selectedMood) }}
+            </div>
+            <div class="mood-score">{{ selectedMood }}/10</div>
+          </div>
+
+          <mat-slider min="1" max="10" step="1" [disabled]="loading" class="mood-slider">
+            <input matSliderThumb [(ngModel)]="selectedMood" name="moodSlider">
+          </mat-slider>
+
+          <button mat-raised-button color="primary" (click)="submitMood()" [disabled]="loading" class="submit-button">
+            <mat-spinner *ngIf="loading" diameter="20" class="button-spinner"></mat-spinner>
+            <mat-icon *ngIf="!loading">check_circle</mat-icon>
+            <span *ngIf="!loading">Save Mood</span>
+          </button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="legend-card">
+        <mat-card-header>
+          <mat-card-title>Mood Scale</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="legend-items">
+            <div *ngFor="let item of moodLegend" class="legend-item">
+              <div class="legend-color" [style.background-color]="item.color"></div>
+              <span class="legend-range">{{ item.range }}</span>
+              <span class="legend-label">{{ item.label }}</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="mood-history-container">
+      <div class="chart-wrapper" *ngIf="!loading && moodHistory.length > 0">
+        <canvas #moodChartCanvas></canvas>
+      </div>
+
+      <div class="empty-state" *ngIf="!loading && moodHistory.length === 0">
+        <mat-icon>sentiment_satisfied</mat-icon>
+        <h3>No mood data yet</h3>
+        <p>Start tracking your mood to see your emotional patterns</p>
+      </div>
+
+      <div class="loading-state" *ngIf="loading">
+        <mat-spinner diameter="50"></mat-spinner>
+        <p>Loading your mood history...</p>
+      </div>
+    </div>
+  </div>
+</div>

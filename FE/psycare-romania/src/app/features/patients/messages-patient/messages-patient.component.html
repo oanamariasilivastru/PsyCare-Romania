@@ -1,0 +1,191 @@
+<mat-toolbar color="primary" class="menu-toolbar">
+  <span class="logo" routerLink="/dashboard/patient">PsyCare</span>
+
+  <div class="menu-buttons">
+    <button mat-button routerLink="/dashboard/patient" routerLinkActive="active-button" [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon>dashboard</mat-icon>
+      Dashboard
+    </button>
+    <button mat-button routerLink="/appointments/patient" routerLinkActive="active-button">
+      <mat-icon>event</mat-icon>
+      Appointments
+    </button>
+    <button mat-button routerLink="/tests/patient" routerLinkActive="active-button">
+      <mat-icon>assignment</mat-icon>
+      Tests
+    </button>
+    <button
+      mat-button
+      routerLink="/messages/patient"
+      routerLinkActive="active-button"
+      [matBadge]="unreadMessages"
+      [matBadgeHidden]="unreadMessages === 0"
+      matBadgeColor="warn"
+    >
+      <mat-icon>mail</mat-icon>
+      Messages
+    </button>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="menu-right">
+    <button 
+      mat-icon-button 
+      [matBadge]="notificationsCount" 
+      [matBadgeHidden]="notificationsCount === 0"
+      matBadgeColor="warn"
+    >
+      <mat-icon>notifications</mat-icon>
+    </button>
+
+    <button mat-button [matMenuTriggerFor]="menu" class="user-button">
+      <mat-icon>account_circle</mat-icon>
+      <span class="user-name">{{ userName }}</span>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<div class="messages-container">
+  <div class="chat-layout">
+    <!-- Conversations Sidebar -->
+    <div class="conversations-sidebar">
+      <div class="sidebar-header">
+        <h2>Messages</h2>
+        <button mat-icon-button>
+          <mat-icon>add_circle</mat-icon>
+        </button>
+      </div>
+
+      <mat-list class="conversations-list">
+        <mat-list-item 
+          *ngFor="let conversation of conversations"
+          [class.active]="selectedConversation?.psychologistId === conversation.psychologistId"
+          (click)="selectConversation(conversation)"
+        >
+          <div class="conversation-item">
+            <div class="time-badge-column">
+              <span class="time">{{ formatLastMessageTime(conversation.lastMessageTime) }}</span>
+              <span *ngIf="conversation.unreadCount > 0" class="unread-badge">
+                {{ conversation.unreadCount }}
+              </span>
+            </div>
+            <div class="avatar">{{ conversation.psychologistAvatar }}</div>
+            <div class="conversation-info">
+              <div class="conversation-header">
+                <span class="name">{{ conversation.psychologistName }}</span>
+              </div>
+              <div class="last-message">
+                <span class="message-text">{{ conversation.lastMessage }}</span>
+              </div>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-area" *ngIf="selectedConversation">
+      <!-- Chat Header -->
+      <div class="chat-header">
+        <div class="psychologist-info">
+          <div class="avatar-large">{{ selectedConversation.psychologistAvatar }}</div>
+          <div class="info">
+            <h3>{{ selectedConversation.psychologistName }}</h3>
+            <span class="status">
+              <span class="status-dot"></span>
+              Online
+            </span>
+          </div>
+        </div>
+        <div class="chat-actions">
+          <button mat-icon-button>
+            <mat-icon>videocam</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>call</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages Container -->
+      <div class="messages-area" #messagesContainer>
+        <div class="messages-list">
+          <div 
+            *ngFor="let message of messages"
+            class="message"
+            [class.sent]="message.senderType === 'patient'"
+            [class.received]="message.senderType === 'psychologist'"
+          >
+            <div class="message-avatar" *ngIf="message.senderType === 'psychologist'">
+              {{ selectedConversation.psychologistAvatar }}
+            </div>
+            <div class="message-content">
+              <div class="message-bubble">
+                <p>{{ message.content }}</p>
+              </div>
+              <div class="message-meta">
+                <span class="message-time">{{ formatMessageTime(message.timestamp) }}</span>
+                <mat-icon *ngIf="message.senderType === 'patient'" class="read-status">
+                  {{ message.read ? 'done_all' : 'done' }}
+                </mat-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message Input -->
+      <div class="message-input-area">
+        <button mat-icon-button class="attachment-button">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        
+        <mat-form-field class="message-input" appearance="outline">
+          <input 
+            matInput 
+            [(ngModel)]="newMessage"
+            placeholder="Type your message..."
+            (keyup.enter)="sendMessage()"
+            autocomplete="off"
+          >
+        </mat-form-field>
+
+        <button mat-icon-button class="emoji-button">
+          <mat-icon>emoji_emotions</mat-icon>
+        </button>
+
+        <button 
+          mat-fab 
+          color="primary" 
+          class="send-button"
+          (click)="sendMessage()"
+          [disabled]="!newMessage.trim()"
+        >
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-chat-state" *ngIf="!selectedConversation">
+      <mat-icon>chat</mat-icon>
+      <h3>Select a conversation</h3>
+      <p>Choose a psychologist from the list to start messaging</p>
+    </div>
+  </div>
+</div>
