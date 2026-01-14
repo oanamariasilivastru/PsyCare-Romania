@@ -1,0 +1,251 @@
+<mat-toolbar color="primary" class="menu-toolbar">
+  <span class="logo" routerLink="/dashboard">PsyCare</span>
+
+  <div class="menu-buttons">
+    <button mat-button routerLink="/dashboard/patient" routerLinkActive="active-button" [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon>dashboard</mat-icon>
+      Dashboard
+    </button>
+    <button mat-button routerLink="/appointments/patient" routerLinkActive="active-button">
+      <mat-icon>event</mat-icon>
+      Appointments
+    </button>
+    <button mat-button routerLink="/tests/patient" routerLinkActive="active-button">
+      <mat-icon>assignment</mat-icon>
+      Tests
+    </button>
+    <button
+      mat-button
+      routerLink="/messages/patient"
+      [matBadge]="unreadMessages"
+      [matBadgeHidden]="unreadMessages === 0"
+      matBadgeColor="warn"
+    >
+      <mat-icon>mail</mat-icon>
+      Messages
+    </button>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="menu-right">
+    <button 
+      mat-icon-button 
+      [matBadge]="notificationsCount" 
+      [matBadgeHidden]="notificationsCount === 0"
+      matBadgeColor="warn"
+    >
+      <mat-icon>notifications</mat-icon>
+    </button>
+
+    <button mat-button [matMenuTriggerFor]="menu" class="user-button">
+      <mat-icon>account_circle</mat-icon>
+      <span class="user-name">{{ userName }}</span>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<div class="tests-container">
+  <!-- Test List View -->
+  <div class="tests-list" *ngIf="!selectedTest">
+    <div class="page-header">
+      <h1>Psychological Assessments</h1>
+      <p>Complete these standardized tests recommended by your psychologist</p>
+    </div>
+
+    <div class="tests-grid">
+      <mat-card *ngFor="let test of tests" class="test-card">
+        <mat-card-header>
+          <div class="test-icon" [style.background-color]="test.color">
+            <mat-icon>{{ test.icon }}</mat-icon>
+          </div>
+          <mat-card-title>{{ test.title }}</mat-card-title>
+          <mat-card-subtitle>{{ test.shortName }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p class="test-description">{{ test.description }}</p>
+          
+          <div class="test-meta">
+            <div class="meta-item">
+              <mat-icon>schedule</mat-icon>
+              <span>{{ test.duration }}</span>
+            </div>
+            <div class="meta-item">
+              <mat-icon>label</mat-icon>
+              <span>{{ test.category }}</span>
+            </div>
+            <div class="meta-item">
+              <mat-icon>quiz</mat-icon>
+              <span>{{ test.questions.length }} questions</span>
+            </div>
+          </div>
+
+          <div class="recommended-by">
+            <mat-icon>person</mat-icon>
+            <span>Recommended by {{ test.recommendedBy }}</span>
+          </div>
+
+          <div class="completion-status" *ngIf="isTestCompleted(test.id)">
+            <mat-icon class="completed-icon">check_circle</mat-icon>
+            <span>Completed on {{ getLastCompletedDate(test.id) }}</span>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button 
+            mat-raised-button 
+            [color]="isTestCompleted(test.id) ? 'accent' : 'primary'"
+            (click)="startTest(test)"
+          >
+            <mat-icon>{{ isTestCompleted(test.id) ? 'refresh' : 'play_arrow' }}</mat-icon>
+            {{ isTestCompleted(test.id) ? 'Retake Test' : 'Start Test' }}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- Test Taking View -->
+  <div class="test-taking" *ngIf="selectedTest && !showResults">
+    <mat-card class="test-card-main">
+      <mat-card-header>
+        <button mat-icon-button (click)="backToTests()" class="back-button">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <div class="test-header-content">
+          <mat-card-title>{{ selectedTest.title }}</mat-card-title>
+          <mat-card-subtitle>{{ selectedTest.shortName }}</mat-card-subtitle>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content>
+        <!-- Progress Bar -->
+        <div class="progress-section">
+          <div class="progress-info">
+            <span class="progress-text">{{ progressText }}</span>
+            <span class="progress-percentage">{{ progress | number:'1.0-0' }}%</span>
+          </div>
+          <mat-progress-bar 
+            mode="determinate" 
+            [value]="progress"
+            [color]="'primary'"
+          ></mat-progress-bar>
+        </div>
+
+        <!-- Instructions (first question only) -->
+        <div class="instructions" *ngIf="currentQuestionIndex === 0">
+          <mat-icon>info</mat-icon>
+          <p>{{ selectedTest.instructions }}</p>
+        </div>
+
+        <!-- Question -->
+        <div class="question-container">
+          <h2 class="question-number">Question {{ currentQuestionIndex + 1 }}</h2>
+          <p class="question-text">{{ currentQuestion.text }}</p>
+
+          <mat-radio-group 
+            [(ngModel)]="selectedAnswer" 
+            class="answer-options"
+          >
+            <mat-radio-button 
+              *ngFor="let option of currentQuestion.options; let i = index"
+              [value]="option.score"
+              class="answer-option"
+            >
+              {{ option.text }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions class="question-actions">
+        <button 
+          mat-button 
+          (click)="previousQuestion()"
+          [disabled]="currentQuestionIndex === 0"
+        >
+          <mat-icon>chevron_left</mat-icon>
+          Previous
+        </button>
+        
+        <button 
+          mat-raised-button 
+          color="primary"
+          (click)="nextQuestion()"
+          [disabled]="selectedAnswer === null"
+        >
+          {{ currentQuestionIndex === selectedTest.questions.length - 1 ? 'Finish' : 'Next' }}
+          <mat-icon>{{ currentQuestionIndex === selectedTest.questions.length - 1 ? 'check' : 'chevron_right' }}</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!-- Results View -->
+  <div class="test-results" *ngIf="showResults && testResult">
+    <mat-card class="results-card">
+      <mat-card-header>
+        <div class="results-icon" [style.background-color]="getSeverityColor(testResult.scoreRange.severity)">
+          <mat-icon>analytics</mat-icon>
+        </div>
+        <mat-card-title>Test Results</mat-card-title>
+        <mat-card-subtitle>{{ selectedTest?.title }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="score-display">
+          <div class="score-circle" [style.border-color]="getSeverityColor(testResult.scoreRange.severity)">
+            <span class="score-value">{{ testResult.totalScore }}</span>
+            <span class="score-label">Score</span>
+          </div>
+
+          <div class="score-interpretation">
+            <h3 [style.color]="getSeverityColor(testResult.scoreRange.severity)">
+              {{ testResult.scoreRange.label }}
+            </h3>
+            <p>{{ testResult.scoreRange.description }}</p>
+          </div>
+        </div>
+
+        <div class="results-info">
+          <mat-icon>info</mat-icon>
+          <p>
+            These results have been saved and shared with your psychologist. 
+            They will discuss them with you during your next session.
+          </p>
+        </div>
+
+        <div class="disclaimer">
+          <mat-icon>warning</mat-icon>
+          <p>
+            <strong>Important:</strong> This is a screening tool, not a diagnosis. 
+            Please consult with your mental health professional for proper evaluation and treatment.
+          </p>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button (click)="backToTests()">
+          <mat-icon>arrow_back</mat-icon>
+          Back to Tests
+        </button>
+        <button mat-raised-button color="primary" (click)="retakeTest()">
+          <mat-icon>refresh</mat-icon>
+          Retake Test
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -6,7 +6,6 @@ export const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
-
   {
     path: 'login',
     loadComponent: () =>
@@ -14,7 +13,6 @@ export const routes: Routes = [
         (m) => m.LoginComponent
       ),
   },
-
   {
     path: 'dashboard',
     loadComponent: () =>
@@ -22,7 +20,35 @@ export const routes: Routes = [
         (m) => m.DashboardComponent
       ),
   },
-
+  {
+    path: 'patient',
+    loadComponent: () =>
+      import('./features/patients/patient-dashboard/patient-dashboard').then(
+        (m) => m.PatientDashboardComponent
+      ),
+  },
+  {
+    path: 'appointments/patient',
+    loadComponent: () =>
+      import('./features/patients/appointments-patient/appointments-patient.component').then(
+        (m) => m.AppointmentsPatientComponent,
+      ),
+  },
+    {
+    path: 'tests/patient',
+    loadComponent: () =>
+      import('./features/patients/tests/tests.component').then(
+        (m) => m.TestsComponent
+      ),
+  },
+  {
+    path: 'messages/patient',
+    loadComponent: () =>
+      import('./features/patients/messages-patient/messages-patient.component').then(
+        (m) => m.MessagesPatientComponent
+      ),
+  },
+  
   {
     path: 'patients',
     loadComponent: () =>
@@ -30,7 +56,6 @@ export const routes: Routes = [
         (m) => m.PatientsComponent
       ),
   },
-
   {
     path: 'appointments',
     loadComponent: () =>
@@ -38,7 +63,6 @@ export const routes: Routes = [
         (m) => m.AppointmentsComponent
       ),
   },
-
   {
     path: 'billing',
     loadComponent: () =>
@@ -46,7 +70,6 @@ export const routes: Routes = [
         (m) => m.BillingComponent
       ),
   },
-
   {
     path: 'messages',
     loadComponent: () =>
@@ -54,7 +77,6 @@ export const routes: Routes = [
         (m) => m.MessagesComponent
       ),
   },
-
   {
     path: 'settings',
     loadComponent: () =>
@@ -62,7 +84,6 @@ export const routes: Routes = [
         (m) => m.SettingsComponent
       ),
   },
-
   {
     path: '**',
     redirectTo: 'login',
