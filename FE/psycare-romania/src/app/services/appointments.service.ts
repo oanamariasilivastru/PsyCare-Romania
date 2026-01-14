@@ -18,7 +18,7 @@ export interface Appointment {
   providedIn: 'root',
 })
 export class AppointmentsService {
-  private apiUrl = 'http://localhost:5286/api/PSYCare';
+  private apiUrl = 'http://localhost:5286/api/PSYCare/Appointment';
 
   constructor(private http: HttpClient) {}
 
@@ -52,11 +52,23 @@ export class AppointmentsService {
     }
 
     return this.http.get<Appointment[]>(
-      `${this.apiUrl}/Appointment/Patient/${patientId}`,
+      `${this.apiUrl}/Patient/${patientId}`,
       { headers: this.getHeaders() }
     ).pipe(
       catchError(err => {
         console.error('Error fetching appointments:', err);
+        return of([]);
+      })
+    );
+  }
+
+  getAppointmentsForPsychologist(psychologistId: number): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(
+      `${this.apiUrl}/Psychologist/${psychologistId}`,
+      { headers: this.getHeaders() }
+    ).pipe(
+      catchError(err => {
+        console.error('Error fetching appointments for psychologist:', err);
         return of([]);
       })
     );

@@ -11,7 +11,7 @@ interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5286/api/PSYCare';
+  private apiUrl = 'http://localhost:5286/api/Auth';
   constructor(private http: HttpClient, private router: Router) {}
 
   login(username: string, password: string): Observable<'psychologist' | 'patient' | null> {

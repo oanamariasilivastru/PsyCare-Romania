@@ -349,7 +349,6 @@ export class PatientDashboardComponent implements OnInit, AfterViewInit, OnDestr
       }
     }
 
-    // Smooth update animation
     this.chart.update('active');
   }
 
@@ -383,7 +382,6 @@ export class PatientDashboardComponent implements OnInit, AfterViewInit, OnDestr
       return;
     }
 
-    // Destroy existing chart
     if (this.chart) {
       this.chart.destroy();
       this.chart = null;
@@ -405,7 +403,6 @@ export class PatientDashboardComponent implements OnInit, AfterViewInit, OnDestr
       const date = new Date(m.date + 'T00:00:00');
       const isMobile = window.innerWidth < 768;
       if (isMobile && this.moodHistory.length > 7) {
-        // Show only month and day on mobile if many points
         return date.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric' });
       }
       return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
@@ -413,7 +410,6 @@ export class PatientDashboardComponent implements OnInit, AfterViewInit, OnDestr
 
     const dataPoints = this.moodHistory.map(m => m.score);
     
-    // Responsive font sizes
     const isMobile = window.innerWidth < 768;
     const isSmallMobile = window.innerWidth < 480;
     const fontSize = isSmallMobile ? 10 : isMobile ? 11 : 12;

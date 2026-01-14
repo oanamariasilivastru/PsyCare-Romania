@@ -14,14 +14,7 @@
       <mat-icon>assignment</mat-icon>
       Tests
     </button>
-    <button
-      mat-button
-      routerLink="/messages/patient"
-      routerLinkActive="active-button"
-      [matBadge]="unreadMessages"
-      [matBadgeHidden]="unreadMessages === 0"
-      matBadgeColor="warn"
-    >
+    <button mat-button routerLink="/messages/patient" routerLinkActive="active-button" [matBadge]="unreadMessages" [matBadgeHidden]="unreadMessages === 0" matBadgeColor="warn">
       <mat-icon>mail</mat-icon>
       Messages
     </button>
@@ -30,12 +23,7 @@
   <span class="spacer"></span>
 
   <div class="menu-right">
-    <button 
-      mat-icon-button 
-      [matBadge]="notificationsCount" 
-      [matBadgeHidden]="notificationsCount === 0"
-      matBadgeColor="warn"
-    >
+    <button mat-icon-button [matBadge]="notificationsCount" [matBadgeHidden]="notificationsCount === 0" matBadgeColor="warn">
       <mat-icon>notifications</mat-icon>
     </button>
 
@@ -65,7 +53,7 @@
           <mat-card-title>How are you feeling today?</mat-card-title>
           <mat-card-subtitle>Track your daily mood</mat-card-subtitle>
         </mat-card-header>
-        
+
         <mat-card-content>
           <div class="mood-display">
             <div class="mood-emoji" [style.color]="getMoodColor(selectedMood)">
@@ -74,27 +62,11 @@
             <div class="mood-score">{{ selectedMood }}/10</div>
           </div>
 
-          <mat-slider 
-            min="1" 
-            max="10" 
-            step="1" 
-            [disabled]="loading"
-            class="mood-slider"
-          >
-            <input 
-              matSliderThumb 
-              [(ngModel)]="selectedMood"
-              name="moodSlider"
-            >
+          <mat-slider min="1" max="10" step="1" [disabled]="loading" class="mood-slider">
+            <input matSliderThumb [(ngModel)]="selectedMood" name="moodSlider">
           </mat-slider>
 
-          <button 
-            mat-raised-button 
-            color="primary" 
-            (click)="submitMood()"
-            [disabled]="loading"
-            class="submit-button"
-          >
+          <button mat-raised-button color="primary" (click)="submitMood()" [disabled]="loading" class="submit-button">
             <mat-spinner *ngIf="loading" diameter="20" class="button-spinner"></mat-spinner>
             <mat-icon *ngIf="!loading">check_circle</mat-icon>
             <span *ngIf="!loading">Save Mood</span>
@@ -118,28 +90,21 @@
       </mat-card>
     </div>
 
-    <mat-card class="chart-card">
-      <mat-card-header>
-        <mat-card-title>Mood History</mat-card-title>
-        <mat-card-subtitle>Track your emotional journey over time</mat-card-subtitle>
-      </mat-card-header>
-      
-      <mat-card-content>
-        <div class="chart-wrapper" *ngIf="!loading && moodHistory.length > 0">
-          <canvas #moodChartCanvas></canvas>
-        </div>
-        
-        <div class="empty-state" *ngIf="!loading && moodHistory.length === 0">
-          <mat-icon>sentiment_satisfied</mat-icon>
-          <h3>No mood data yet</h3>
-          <p>Start tracking your mood to see your emotional patterns</p>
-        </div>
-        
-        <div class="loading-state" *ngIf="loading">
-          <mat-spinner diameter="50"></mat-spinner>
-          <p>Loading your mood history...</p>
-        </div>
-      </mat-card-content>
-    </mat-card>
+    <div class="mood-history-container">
+      <div class="chart-wrapper" *ngIf="!loading && moodHistory.length > 0">
+        <canvas #moodChartCanvas></canvas>
+      </div>
+
+      <div class="empty-state" *ngIf="!loading && moodHistory.length === 0">
+        <mat-icon>sentiment_satisfied</mat-icon>
+        <h3>No mood data yet</h3>
+        <p>Start tracking your mood to see your emotional patterns</p>
+      </div>
+
+      <div class="loading-state" *ngIf="loading">
+        <mat-spinner diameter="50"></mat-spinner>
+        <p>Loading your mood history...</p>
+      </div>
+    </div>
   </div>
 </div>

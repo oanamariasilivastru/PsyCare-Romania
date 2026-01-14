@@ -84,7 +84,7 @@
   background: white;
 }
 
-// Conversations Sidebar
+// FIXED: Conversations Sidebar
 .conversations-sidebar {
   border-right: 1px solid #e0e0e0;
   display: flex;
@@ -130,86 +130,93 @@
       &.active {
         background-color: #e3f2fd;
       }
+    }
 
+    // FIXED: Proper layout for current HTML structure
     .conversation-item {
-      flex: 1;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
       padding: 16px;
       width: 100%;
+      min-width: 0;
 
       .avatar {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        flex-shrink: 0;
+      }
+
+      .conversation-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+
+        .conversation-header {
           display: flex;
+          justify-content: space-between;
           align-items: center;
-          justify-content: center;
-          font-size: 24px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          flex-shrink: 0;
-        }
+          gap: 12px;
+          width: 100%;
 
-        .conversation-info {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          min-width: 0;
-
-          .conversation-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 4px;
-
-            .name {
-              font-weight: 600;
-              font-size: 15px;
-              color: #1a237e;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              flex: 1 1 auto;
-              min-width: 0;
-            }
-
-            .time {
-              font-size: 12px;
-              color: #90a4ae;
-              flex-shrink: 0;
-              white-space: nowrap;
-              margin-left: 4px;
-            }
+          .name {
+            font-weight: 600;
+            font-size: 15px;
+            color: #1a237e;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1;
+            min-width: 0;
           }
 
-          .last-message {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 6px;
+          .time {
+            font-size: 12px;
+            color: #90a4ae;
+            flex-shrink: 0;
+            white-space: nowrap;
+          }
+        }
+
+        .last-message {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 8px;
+          width: 100%;
+
+          .message-text {
+            font-size: 14px;
+            color: #546e7a;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1;
             min-width: 0;
-            width: 100%;
+            max-width: calc(100% - 40px); // Reserve space for badge
+          }
 
-            .message-text {
-              font-size: 14px;
-              color: #546e7a;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              flex: 1 1 auto;
-              min-width: 0;
-            }
-
-            .unread-badge {
+          .unread-badge {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              min-width: 20px;
+              height: 20px;
+              padding: 0 6px;
+              border-radius: 50%;
               background: #2196f3;
               color: white;
               font-size: 11px;
               font-weight: 700;
-              padding: 2px 8px;
-              border-radius: 12px;
               flex-shrink: 0;
-            }
           }
         }
       }
@@ -468,6 +475,20 @@
   }
 }
 
+// Loading State
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
 // Animations
 @keyframes fadeIn {
   from {
@@ -486,6 +507,48 @@
   }
   50% {
     opacity: 0.5;
+  }
+}
+
+// Error/Success/Warning Snackbar Styles
+::ng-deep {
+  .error-snackbar {
+    background-color: #f44336 !important;
+    color: white !important;
+
+    .mat-mdc-snack-bar-label {
+      color: white !important;
+    }
+
+    .mat-mdc-button {
+      color: white !important;
+    }
+  }
+
+  .success-snackbar {
+    background-color: #4caf50 !important;
+    color: white !important;
+
+    .mat-mdc-snack-bar-label {
+      color: white !important;
+    }
+
+    .mat-mdc-button {
+      color: white !important;
+    }
+  }
+
+  .warning-snackbar {
+    background-color: #ff9800 !important;
+    color: white !important;
+
+    .mat-mdc-snack-bar-label {
+      color: white !important;
+    }
+
+    .mat-mdc-button {
+      color: white !important;
+    }
   }
 }
 

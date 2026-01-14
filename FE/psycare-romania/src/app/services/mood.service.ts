@@ -19,7 +19,7 @@ export interface Mood {
   providedIn: 'root',
 })
 export class MoodService {
-  private apiUrl = 'http://localhost:5286/api/PSYCare';
+  private apiUrl = 'http://localhost:5286/api/PSYCare/Mood';
 
   constructor(private http: HttpClient) {}
 
@@ -33,29 +33,12 @@ export class MoodService {
 
   private getPatientIdFromToken(): number | null {
     const token = localStorage.getItem('token');
-    if (!token) {
-      console.error('No token found');
-      return null;
-    }
-    
+    if (!token) return null;
+
     try {
-      const parts = token.split('.');
-      if (parts.length !== 3) {
-        console.error('Invalid token format');
-        return null;
-      }
-      
-      const payload = JSON.parse(atob(parts[1]));
-      console.log('Token payload:', payload);
-      
+      const payload = JSON.parse(atob(token.split('.')[1]));
       const patientId = payload.sub || payload.patientId;
-      
-      if (!patientId) {
-        console.error('PatientId not found in token. Keys:', Object.keys(payload));
-        return null;
-      }
-      
-      return parseInt(patientId, 10);
+      return patientId ? parseInt(patientId, 10) : null;
     } catch (error) {
       console.error('Error parsing token:', error);
       return null;
@@ -64,50 +47,33 @@ export class MoodService {
 
   getMoodHistory(): Observable<Mood[]> {
     const patientId = this.getPatientIdFromToken();
-    
-    if (!patientId) {
-      console.error('Cannot get mood history: patientId is null');
-      return of([]);
-    }
-    
-    console.log('Fetching moods for patient:', patientId);
-    
-    return this.http.get<Mood[]>(
-      `${this.apiUrl}/Mood/${patientId}`,
-      { headers: this.getHeaders() }
-    ).pipe(
-      catchError((error) => {
-        console.error('Error fetching mood history:', error);
-        return of([]);
-      })
-    );
+    if (!patientId) return of([]);
+
+    return this.http.get<Mood[]>(`${this.apiUrl}/${patientId}`, { headers: this.getHeaders() })
+      .pipe(
+        catchError(err => {
+          console.error('Failed to fetch mood history', err);
+          return of([]);
+        })
+      );
   }
 
   addMood(score: number): Observable<any> {
     const patientId = this.getPatientIdFromToken();
-    
-    if (!patientId) {
-      console.error('Cannot add mood: patientId is null');
-      return throwError(() => new Error('Patient not found in token'));
-    }
+    if (!patientId) return throwError(() => new Error('Patient not found in token'));
 
     const body: MoodDto = {
-      patientId: patientId,
-      score: score,
+      patientId,
+      score,
       date: new Date().toISOString()
     };
 
-    console.log('Adding mood:', body);
-
-    return this.http.post(
-      `${this.apiUrl}/Mood`,
-      body,
-      { headers: this.getHeaders() }
-    ).pipe(
-      catchError((error) => {
-        console.error('Error adding mood:', error);
-        return throwError(() => error);
-      })
-    );
+    return this.http.post(`${this.apiUrl}`, body, { headers: this.getHeaders() })
+      .pipe(
+        catchError(err => {
+          console.error('Failed to add mood', err);
+          return throwError(() => err);
+        })
+      );
   }
 }
