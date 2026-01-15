@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Add Event</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="dialog-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Event Name</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Event Type</mat-label>
+      <mat-select formControlName="type">
+        @for(type of types; track type){
+        <mat-option [value]="type">
+          {{ type }}
+        </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()">Add</button>
+</mat-dialog-actions>

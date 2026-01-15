@@ -14,7 +14,7 @@ export class AppointmentsComponent {
     height: 'calc(100% - 80px)',
 
     headerToolbar: {
-      left: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek today',
+      left: 'dayGridMonth,timeGridWeek,timeGridDay today',
       center: 'title',
       right: 'prevYear,prev,next,nextYear',
     },
@@ -22,7 +22,6 @@ export class AppointmentsComponent {
       dayGridMonth: 'Month',
       timeGridWeek: 'Week',
       timeGridDay: 'Day',
-      listWeek: 'Agenda',
       today: 'Today',
     },
   };
