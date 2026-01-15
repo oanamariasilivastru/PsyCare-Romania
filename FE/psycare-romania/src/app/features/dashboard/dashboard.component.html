@@ -1,7 +1,11 @@
 <h1>Dashboard</h1>
-<!-- <div class="container">
-  <div class="col">something else</div>
-  <div class="col"> -->
-<app-calendar [config]="calendarOptions"></app-calendar>
-<!-- </div> -->
-<!-- </div> -->
+<div class="dashboard-container">
+  <div class="left-column">
+    <h1>Agenda</h1>
+    <app-calendar [config]="calendarOptions"></app-calendar>
+  </div>
+  <div class="right-column">
+    <h1>News Feed</h1>
+    <app-news-feed></app-news-feed>
+  </div>
+</div>

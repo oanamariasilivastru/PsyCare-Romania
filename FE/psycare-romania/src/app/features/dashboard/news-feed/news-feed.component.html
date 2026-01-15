@@ -1,0 +1,14 @@
+<div class="news-feed-grid">
+  <mat-card *ngFor="let news of psychologyNews" class="news-card mat-elevation-z3">
+    <div class="news-card-content">
+      @if(news.imageUrl){
+      <img [src]="news.imageUrl" alt="News image" class="news-image" />
+      }
+      <div class="news-text">
+        <h3 class="news-title">{{ news.title }}</h3>
+        <p class="news-snippet">{{ news.snippet }}</p>
+        <span class="news-date">{{ news.date | timeAgo }}</span>
+      </div>
+    </div>
+  </mat-card>
+</div>

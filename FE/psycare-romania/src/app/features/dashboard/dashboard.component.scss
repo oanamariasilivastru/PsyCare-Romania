@@ -5,13 +5,15 @@
   padding: 0 20px;
 }
 
-.container {
-  height: calc(100% - 48px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+.dashboard-container {
+  display: flex;
+  gap: 20px;
 }
 
-.col {
-  min-width: 0;
+.left-column {
+  flex: 0 0 30%;
+}
+
+.right-column {
+  flex: 1;
 }
