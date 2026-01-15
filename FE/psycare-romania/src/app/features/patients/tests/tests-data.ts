@@ -40,7 +40,7 @@ export const PSYCHOLOGICAL_TESTS: PsychologicalTest[] = [
     category: 'Depression',
     icon: 'psychology',
     color: '#1976d2',
-    recommendedBy: 'Dr. Sarah Johnson',
+    recommendedBy: 'Dr. Maria Ionescu',
     instructions: 'Over the last 2 weeks, how often have you been bothered by any of the following problems?',
     questions: [
       {
@@ -153,7 +153,7 @@ export const PSYCHOLOGICAL_TESTS: PsychologicalTest[] = [
     category: 'Anxiety',
     icon: 'error_outline',
     color: '#f57c00',
-    recommendedBy: 'Dr. Michael Chen',
+    recommendedBy: 'Dr. Maria Ionescu',
     instructions: 'Over the last 2 weeks, how often have you been bothered by the following problems?',
     questions: [
       {
@@ -245,7 +245,7 @@ export const PSYCHOLOGICAL_TESTS: PsychologicalTest[] = [
     category: 'PTSD',
     icon: 'emergency',
     color: '#d32f2f',
-    recommendedBy: 'Dr. Emily Rodriguez',
+    recommendedBy: 'Dr. Maria Ionescu',
     instructions: 'In the past month, how much were you bothered by:',
     questions: [
       {
@@ -322,7 +322,7 @@ export const PSYCHOLOGICAL_TESTS: PsychologicalTest[] = [
     category: 'Self-Esteem',
     icon: 'favorite',
     color: '#7b1fa2',
-    recommendedBy: 'Dr. James Anderson',
+    recommendedBy: 'Dr. Maria Ionescu',
     instructions: 'Please indicate how much you agree or disagree with each statement:',
     questions: [
       {
@@ -443,7 +443,7 @@ export const PSYCHOLOGICAL_TESTS: PsychologicalTest[] = [
     category: 'Stress',
     icon: 'speed',
     color: '#388e3c',
-    recommendedBy: 'Dr. Lisa Martinez',
+    recommendedBy: 'Dr. Maria Ionescu',
     instructions: 'In the last month, how often have you:',
     questions: [
       {

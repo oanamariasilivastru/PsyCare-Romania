@@ -1,20 +1,50 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .menu-toolbar {
-  background-color: var(--mat-sys-primary-container);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 24px;
 
   .logo {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 700;
     cursor: pointer;
-    margin-right: 20px;
+    user-select: none;
+    transition: opacity 0.2s;
+    letter-spacing: -0.5px;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  .menu-buttons {
+    display: flex;
+    gap: 4px;
+    margin-left: 32px;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      transition: all 0.2s;
+
+      mat-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
   }
 
   .active-button {
-    background-color: var(--mat-sys-primary);
-    color: white;
-  }
-
-  .menu-buttons button {
-    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
   }
 
   .spacer {
@@ -24,10 +54,35 @@
   .menu-right {
     display: flex;
     align-items: center;
+    gap: 8px;
 
-    button {
-      margin-left: 10px;
-      position: relative;
+    .user-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .user-name {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .menu-toolbar {
+    padding: 0 12px;
+
+    .logo {
+      font-size: 18px;
+    }
+
+    .menu-buttons {
+      display: none;
+    }
+
+    .menu-right .user-name {
+      display: none;
     }
   }
 }

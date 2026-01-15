@@ -2,7 +2,6 @@
   display: block;
   height: 100%;
   width: 100%;
-  padding: 0 20px;
 }
 
 .menu-toolbar {
@@ -12,16 +11,17 @@
   width: 100%;
   padding: 0 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background-color: var(--mat-sys-primary-container);
+  background-color: white !important;
+  color: #1a237e !important;
 
   .logo {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 700;
     cursor: pointer;
     user-select: none;
-    margin-right: 20px;
     letter-spacing: -0.5px;
     transition: opacity 0.2s;
+    color: #2196f3;
 
     &:hover {
       opacity: 0.85;
@@ -39,19 +39,28 @@
       gap: 6px;
       font-weight: 500;
       transition: all 0.2s;
-      margin-right: 10px;
+      color: #546e7a;
 
       mat-icon {
         font-size: 20px;
         width: 20px;
         height: 20px;
       }
+
+      &:hover {
+        background-color: rgba(33, 150, 243, 0.08);
+        color: #2196f3;
+      }
     }
   }
 
   .active-button {
-    background-color: var(--mat-sys-primary);
-    color: white;
+    background-color: #2196f3 !important;
+    color: white !important;
+
+    &:hover {
+      background-color: #1976d2 !important;
+    }
   }
 
   .spacer {
@@ -64,8 +73,12 @@
     gap: 8px;
 
     button {
-      margin-left: 10px;
-      position: relative;
+      color: #546e7a;
+
+      &:hover {
+        background-color: rgba(33, 150, 243, 0.08);
+        color: #2196f3;
+      }
     }
 
     .user-button {
@@ -104,6 +117,7 @@
 .mood-input-card {
   position: relative;
   z-index: 2;
+  
   mat-card-header {
     margin-bottom: 24px;
   }
@@ -230,7 +244,7 @@
   background: white;
   border-radius: 12px;
   padding: 16px;
-  height: 650px; // crește înălțimea aici
+  height: 650px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -241,6 +255,7 @@
 .chart-wrapper {
   width: 100%;
   height: 100%;
+  
   canvas {
     display: block;
     max-width: 100% !important;
@@ -301,7 +316,7 @@
     padding: 0 12px;
 
     .logo {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     .menu-buttons {
@@ -336,7 +351,6 @@
   }
 }
 
-// Small mobile view
 @media (max-width: 480px) {
   .dashboard-container {
     padding: 12px;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CalendarComponent } from '../../shared/calendar/calendar.component';
+import { MenuComponent } from '../../shared/menu/menu.component';
 import { CalendarOptions } from '@fullcalendar/core/index.js';
 
 @Component({
@@ -7,12 +8,11 @@ import { CalendarOptions } from '@fullcalendar/core/index.js';
   standalone: true,
   templateUrl: './appointments.component.html',
   styleUrl: './appointments.component.scss',
-  imports: [CalendarComponent],
+  imports: [CalendarComponent, MenuComponent],
 })
 export class AppointmentsComponent {
   calendarOptions: CalendarOptions = {
     height: 'calc(100% - 80px)',
-
     headerToolbar: {
       left: 'dayGridMonth,timeGridWeek,timeGridDay today',
       center: 'title',

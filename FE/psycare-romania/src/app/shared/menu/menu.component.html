@@ -1,44 +1,43 @@
 <mat-toolbar color="primary" class="menu-toolbar">
-  <span class="logo" routerLink="/dashboard">PsyCare Romania</span>
+  <span class="logo" routerLink="/dashboard">PsyCare</span>
 
-  <span class="menu-buttons">
-    <button mat-button routerLink="/dashboard" routerLinkActive="active-button">Dashboard</button>
-    <button mat-button routerLink="/patients" routerLinkActive="active-button">Patients</button>
+  <div class="menu-buttons">
+    <button mat-button routerLink="/dashboard" routerLinkActive="active-button" [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon>dashboard</mat-icon>
+      Dashboard
+    </button>
     <button mat-button routerLink="/appointments" routerLinkActive="active-button">
+      <mat-icon>event</mat-icon>
       Appointments
     </button>
-    <!-- <button mat-button routerLink="/billing" routerLinkActive="active-button">Billing</button> -->
-    <!-- <button
-      mat-button
-      routerLink="/messages"
-      matBadge="{{ unreadMessages }}"
-      routerLinkActive="active-button"
-    >
-      Messages
-    </button> -->
-  </span>
+  </div>
 
   <span class="spacer"></span>
 
-  <span class="menu-right">
-    <button mat-icon-button>
-      <mat-icon matBadge="{{ notificationsCount }}">notifications</mat-icon>
+  <div class="menu-right">
+    <button 
+      mat-icon-button 
+      [matBadge]="notificationsCount" 
+      [matBadgeHidden]="notificationsCount === 0"
+      matBadgeColor="warn"
+    >
+      <mat-icon>notifications</mat-icon>
     </button>
 
-    <button mat-button [matMenuTriggerFor]="profileMenu">
+    <button mat-button [matMenuTriggerFor]="menu" class="user-button">
       <mat-icon>account_circle</mat-icon>
-      {{ userName }}
+      <span class="user-name">{{ userName }}</span>
     </button>
 
-    <mat-menu #profileMenu="matMenu" routerLinkActive="active-button">
+    <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/settings">
         <mat-icon>settings</mat-icon>
-        Settings
+        <span>Settings</span>
       </button>
       <button mat-menu-item (click)="logout()">
         <mat-icon>logout</mat-icon>
-        Logout
+        <span>Logout</span>
       </button>
     </mat-menu>
-  </span>
+  </div>
 </mat-toolbar>

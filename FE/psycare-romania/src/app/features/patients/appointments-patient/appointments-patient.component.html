@@ -10,7 +10,7 @@
       <mat-icon>event</mat-icon>
       Appointments
     </button>
-    <button mat-button routerLink="/tests/patient" routerLinkActive="active-button">
+    <button mat-button routerLink="/tests/patient" rutLinkActive="active-button">
       <mat-icon>assignment</mat-icon>
       Tests
     </button>
@@ -115,11 +115,11 @@
       </mat-card-content>
 
       <mat-card-actions>
-        <button mat-button color="primary">
+        <button mat-button color="primary" (click)="rescheduleAppointment(app)">
           <mat-icon>edit</mat-icon>
           Reschedule
         </button>
-        <button mat-button color="warn">
+        <button mat-button color="warn" (click)="cancelAppointment(app)">
           <mat-icon>cancel</mat-icon>
           Cancel
         </button>

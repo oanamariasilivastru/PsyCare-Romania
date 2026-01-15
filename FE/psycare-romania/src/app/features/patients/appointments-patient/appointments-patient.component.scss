@@ -402,4 +402,19 @@
       }
     }
   }
+  ::ng-deep {
+  .success-snackbar {
+    .mdc-snackbar__surface {
+      background-color: #4caf50 !important;
+    }
+    
+    .mat-mdc-snack-bar-label {
+      color: white !important;
+    }
+    
+    .mat-mdc-button {
+      color: white !important;
+    }
+  }
+}
 }

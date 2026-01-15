@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -8,7 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Appointment } from '../../../services/appointments.service';
+import { RescheduleDialogComponent } from './reschedule-dialog.component';
 
 @Component({
   selector: 'app-appointments-patient',
@@ -22,7 +25,9 @@ import { Appointment } from '../../../services/appointments.service';
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   templateUrl: './appointments-patient.component.html',
   styleUrls: ['./appointments-patient.component.scss'],
@@ -34,7 +39,12 @@ export class AppointmentsPatientComponent implements OnInit {
   unreadMessages: number = 0;
   notificationsCount: number = 0;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.loadUserName();
@@ -87,6 +97,88 @@ export class AppointmentsPatientComponent implements OnInit {
     return '#2196f3'; // Blue - more than a week
   }
 
+  rescheduleAppointment(appointment: Appointment): void {
+    const dialogRef = this.dialog.open(RescheduleDialogComponent, {
+      width: '550px',
+      data: { appointment }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog closed with result:', result);
+      
+      if (result) {
+        // HARDCODED TEST: For appointment ID 2, always change to 25th
+        let newDate = result.newDate;
+        if (appointment.id === 2) {
+          newDate = '2026-01-25T14:00:00';
+          console.log('Hardcoded: Changing appointment 2 to Jan 25th');
+        }
+        
+        console.log('Appointment to update:', appointment);
+        console.log('New date:', newDate);
+        console.log('Before update:', JSON.stringify(this.appointments));
+        
+        // Create completely new array with updated appointment
+        const updatedAppointments: Appointment[] = [];
+        for (const app of this.appointments) {
+          if (app.id === appointment.id) {
+            updatedAppointments.push({
+              ...app,
+              date: newDate,
+              notes: result.notes || app.notes
+            });
+            console.log('Updated appointment:', updatedAppointments[updatedAppointments.length - 1]);
+          } else {
+            updatedAppointments.push(app);
+          }
+        }
+        
+        this.appointments = updatedAppointments;
+        
+        console.log('After update:', JSON.stringify(this.appointments));
+        
+        // Force change detection
+        this.cdr.detectChanges();
+        
+        this.snackBar.open(
+          appointment.id === 2 
+            ? 'Appointment rescheduled to January 25th (hardcoded test)!' 
+            : 'Appointment rescheduled successfully!', 
+          'Close', 
+          {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['success-snackbar']
+          }
+        );
+      } else {
+        console.log('Dialog was cancelled');
+      }
+    });
+  }
+
+  cancelAppointment(appointment: Appointment): void {
+    const confirmCancel = confirm(
+      `Are you sure you want to cancel your appointment with ${appointment.psychologistName} on ${this.formatDate(appointment.date)}?`
+    );
+
+    if (confirmCancel) {
+      // Remove the appointment from the list
+      this.appointments = this.appointments.filter(a => a.id !== appointment.id);
+      
+      this.snackBar.open('Appointment cancelled successfully', 'Close', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['success-snackbar']
+      });
+
+      // Here you would typically call a service to cancel the appointment on the backend
+      // this.appointmentsService.cancelAppointment(appointment.id).subscribe(...)
+    }
+  }
+
   logout(): void {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
@@ -107,16 +199,6 @@ export class AppointmentsPatientComponent implements OnInit {
       {
         id: 2,
         patientId: 123,
-        psychologistId: 102,
-        date: '2026-01-18T14:00:00',
-        notes: 'Follow-up session - CBT therapy',
-        fee: 120,
-        patientName: 'Pop Ion',
-        psychologistName: 'Dr. Alexandru Ionescu'
-      },
-      {
-        id: 3,
-        patientId: 123,
         psychologistId: 101,
         date: '2026-01-22T11:15:00',
         notes: 'Progress evaluation and treatment plan review',
@@ -125,17 +207,7 @@ export class AppointmentsPatientComponent implements OnInit {
         psychologistName: 'Dr. Maria Popescu'
       },
       {
-        id: 4,
-        patientId: 123,
-        psychologistId: 103,
-        date: '2026-01-25T16:00:00',
-        notes: 'Group therapy session',
-        fee: 80,
-        patientName: 'Pop Ion',
-        psychologistName: 'Dr. Elena Dumitrescu'
-      },
-      {
-        id: 5,
+        id: 3,
         patientId: 123,
         psychologistId: 101,
         date: '2026-01-29T10:00:00',
