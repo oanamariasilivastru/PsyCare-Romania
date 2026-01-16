@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LCqetaJKHtjbStq9Ziojfi3/+ijpbO1iCnNbelGrxdXZeSBt4cUSU2FenScxsCSysQj2yCYTjcEPHRN1F27gWA==",
+  "dgSpecHash": "FNF/ZZcBKS1S6/OFfhvQHjESVUoRSTmtBe6tV/VGrlAKgOfTmAh1XEEdCBMJ4o8oTv9fFxSnhPdTCbfK3/1Ugg==",
   "success": true,
-  "projectFilePath": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\backend.csproj",
+  "projectFilePath": "C:\\Master\\PsyCare-Romania\\BE\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Oana\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Oana\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

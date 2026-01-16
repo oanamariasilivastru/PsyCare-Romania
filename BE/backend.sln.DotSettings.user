@@ -1,9 +1,13 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8b88e0c8_002Dc513_002D4e62_002D92c1_002D9f4c0039d633/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="PatientChatSteps" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::8E44D058-6227-47AE-AF77-0DF53BD2285E::net8.0::test.PatientChatSteps&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::8E44D058-6227-47AE-AF77-0DF53BD2285E::net8.0::test.PatientLanguageSteps&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::8E44D058-6227-47AE-AF77-0DF53BD2285E::net8.0::test.BreakSteps&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::8E44D058-6227-47AE-AF77-0DF53BD2285E::net8.0::UserLoginSteps&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::8E44D058-6227-47AE-AF77-0DF53BD2285E::net8.0::test.PatientChatSteps&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::8E44D058-6227-47AE-AF77-0DF53BD2285E::net8.0::test.PatientLanguageSteps&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::8E44D058-6227-47AE-AF77-0DF53BD2285E::net8.0::test.BreakSteps&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::8E44D058-6227-47AE-AF77-0DF53BD2285E::net8.0::UserLoginSteps&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;ProjectFolder&gt;08143621-4684-499A-BFB2-FE08CF784523/d:Repository&lt;/ProjectFolder&gt;&#xD;
+    &lt;ProjectFolder&gt;08143621-4684-499A-BFB2-FE08CF784523/d:Service&lt;/ProjectFolder&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

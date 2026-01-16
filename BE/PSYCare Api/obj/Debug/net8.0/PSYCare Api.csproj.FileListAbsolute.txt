@@ -218,3 +218,113 @@ C:\Master\An_1\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\refint\PSYCare Ap
 C:\Master\An_1\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.pdb
 C:\Master\An_1\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.genruntimeconfig.cache
 C:\Master\An_1\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\ref\PSYCare Api.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\appsettings.Development.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\appsettings.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\backend.deps.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\backend.runtimeconfig.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\backend.exe
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\PSYCare Api.exe
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\PSYCare Api.deps.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\PSYCare Api.runtimeconfig.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\PSYCare Api.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\PSYCare Api.pdb
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Azure.Core.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Azure.Identity.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\EntityFramework.SqlServer.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\EntityFramework.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.ClientModel.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.CodeDom.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.Data.SqlClient.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\System.Text.Json.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\backend.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\bin\Debug\net8.0\backend.pdb
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.csproj.AssemblyReference.cache
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.AssemblyInfoInputs.cache
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.AssemblyInfo.cs
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.csproj.CoreCompileInputs.cache
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.sourcelink.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\staticwebassets.build.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\staticwebassets.development.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\staticwebassets\msbuild.PSYCare Api.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\staticwebassets\msbuild.build.PSYCare Api.props
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PSYCare Api.props
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PSYCare Api.props
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\scopedcss\bundle\PSYCare Api.styles.css
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare .B834322F.Up2Date
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\refint\PSYCare Api.dll
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.pdb
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\PSYCare Api.genruntimeconfig.cache
+C:\Master\PsyCare-Romania\BE\PSYCare Api\obj\Debug\net8.0\ref\PSYCare Api.dll

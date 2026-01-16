@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y8Y+vQWI6Bll/oxlS3wt2Ht0fOCRHokpoiz4eYpdkohA5mtZ7NXHhq8gAKBWGTvIeKNieOvrk8x/LBjPqC0RcQ==",
+  "dgSpecHash": "ON8qN+FzBswBuZleH9YEuRgcVUzelOgKnW9DqmP4mpRh7jN6aLis2Xu/pp8r6lMBiZwg2BBsS8ysdLLWVyo3+g==",
   "success": true,
-  "projectFilePath": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\PSYCare Api\\PSYCare Api.csproj",
+  "projectFilePath": "C:\\Master\\PsyCare-Romania\\BE\\PSYCare Api\\PSYCare Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Oana\\.nuget\\packages\\azure.core\\1.49.0\\azure.core.1.49.0.nupkg.sha512",
     "C:\\Users\\Oana\\.nuget\\packages\\azure.identity\\1.16.0\\azure.identity.1.16.0.nupkg.sha512",

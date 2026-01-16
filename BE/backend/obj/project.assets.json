@@ -3137,11 +3137,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Master\\PsyCare-Romania\\BE\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\backend.csproj",
+      "projectPath": "C:\\Master\\PsyCare-Romania\\BE\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\Oana\\.nuget\\packages\\",
-      "outputPath": "C:\\Master\\An_1\\PsyCare-Romania\\BE\\backend\\obj\\",
+      "outputPath": "C:\\Master\\PsyCare-Romania\\BE\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

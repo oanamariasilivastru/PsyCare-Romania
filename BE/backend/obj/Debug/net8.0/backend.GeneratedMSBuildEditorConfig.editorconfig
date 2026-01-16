@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = backend
-build_property.ProjectDir = C:\Master\An_1\PsyCare-Romania\BE\backend\
+build_property.ProjectDir = C:\Master\PsyCare-Romania\BE\backend\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
